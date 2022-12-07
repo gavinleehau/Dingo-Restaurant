@@ -13,8 +13,9 @@ def contact(request):
         data.date = request.POST['date']
         data.time = request.POST['time']
         data.amount = request.POST['amount']
+        data.note = request.POST['note']
         data.save()
-        return redirect('home')
+        return redirect('success_page')
 		
     return render(
 		request=request,
@@ -23,6 +24,14 @@ def contact(request):
 			'contactInfo': contactInfo
 		}
 	)
+
+def success_page(request):
+
+    return render(
+        request=request,
+        template_name="success_page.html",
+        context={}
+    )
 
 	
  
