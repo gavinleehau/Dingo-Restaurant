@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.core.paginator import Paginator
 from django.shortcuts import get_object_or_404
 
-from .models import author, blog, author
+from .models import InstagramFeeds, author, blog, author, InstagramFeeds
 
 # Create your views here.
 
@@ -13,6 +13,7 @@ def showPosts(request):
 	page = new_paginator.get_page(page_number)
 
 	recentPosts = blog.objects.all().order_by('-id')[0:4]
+	igFeeds 	= InstagramFeeds.objects.all()
 
 	return render(
 		request=request,
@@ -20,6 +21,7 @@ def showPosts(request):
 		context={
 			'page': page,
 			'recentPosts': recentPosts,
+			'igFeeds': igFeeds,
 		}
 	)
 

@@ -3,15 +3,21 @@ from django.db import models
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.contrib.auth.models import User
 from django.utils.safestring import mark_safe
+from django.utils.translation import gettext_lazy as _
 import datetime
+
 
 # Create your models here.
 
 class author(models.Model):
-    author_name = models.CharField('Tên tác giả', default='Artica Restaurant', max_length=100)
+    author_name = models.CharField('Tên tác giả', default='Dingo Restaurant', max_length=100)
     link        = models.CharField('Link nhà hàng', max_length=10000) # This part can be chosen 1 of the two, if you don't need too much detail, just need the restaurant link
     avatar      = models.ImageField('Ảnh đại diện', null=True)
     # description = RichTextUploadingField('Nội dung')
+
+    class Meta:
+        verbose_name = _("Tác giả")
+        verbose_name_plural = _("Tác giả")
 
     def __str__(self):
         return self.author_name
@@ -29,6 +35,10 @@ class blog(models.Model):
     content    = RichTextUploadingField('Nội dung')
     status     = models.IntegerField('Trạng thái', choices=STATUS, default=0)
     note       = models.TextField('Ghi chú', null=True)
+
+    class Meta:
+        verbose_name = _("Bài viết")
+        verbose_name_plural = _("Bài viết")
 
 
     # Custom Admin: Function for show image in Blog
@@ -54,4 +64,15 @@ class blog(models.Model):
 
     def __str__(self):
         return self.title
+
+class InstagramFeeds(models.Model):
+    note = models.CharField('Note', max_length=100, default='Ảnh instagram')
+    image = models.ImageField('ảnh instagram feeds')
+
+    class Meta:
+        verbose_name = _("Khoảnh khắc")
+        verbose_name_plural = _("Khoảnh khắc")
+
+    def __str__(self):
+        return self.note
 

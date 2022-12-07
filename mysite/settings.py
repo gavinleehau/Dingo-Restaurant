@@ -46,7 +46,9 @@ INSTALLED_APPS = [
     'home',
     'user',
     'blog',
-    'menu'
+    'menu',
+    'chefs',
+    'mptt'
 ]
 
 MIDDLEWARE = [
@@ -115,7 +117,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Ho_Chi_Minh'
 
 USE_I18N = True
 
@@ -132,7 +134,6 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'), 
 )
-
 STATIC_ROOT  = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/media/'
@@ -153,3 +154,5 @@ CKEDITOR_CONFIGS = {
         'toolbar': None,
     },
 }
+
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'

@@ -1,6 +1,10 @@
 from django.contrib import admin
-from .models import contact
+from .models import ContactInfo, Reservations
 
 # Register your models here.
 
-admin.site.register(contact)
+class ContactInfoAdmin(admin.ModelAdmin):
+    list_display = ('address', 'phoneNumber', 'email',)
+
+admin.site.register(ContactInfo, ContactInfoAdmin)
+admin.site.register(Reservations)

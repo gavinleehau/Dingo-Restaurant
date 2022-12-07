@@ -49,9 +49,21 @@
                                 </li>
                             </ul>
                         </div>
+                        {% if user.id is not None %}
                         <div class="menu_btn">
-                            <a href="#" class="btn_1 d-none d-sm-block">book a tabel</a>
+                            <a href="{% url 'logout' %}" class="btn_1 d-none d-sm-block">Hi, {{user.userprofile.name}}</a>
                         </div>
+                        {% else %}
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'login' %}">Đăng nhập</a>
+                                </li>
+                            </ul>
+                            <div class="menu_btn">
+                                <a href="{% url 'register' %}" class="btn_1 d-none d-sm-block">Đăng ký</a>
+                            </div>
+                        {% endif %}
+                        
                     </nav>
                 </div>
             </div>
@@ -160,18 +172,16 @@
                         <img src="{% static '' %}img/about.png" alt="">
                     </div>
                 </div>
-                <div class="col-sm-8 col-lg-4">
-                    <div class="about_text">
-                        <h5>Our History</h5>
-                        <h2>Where The Food’s As Good
-                            As The Root Beer.</h2>
-                        <h4>Satisfying people hunger for simple pleasures</h4>
-                        <p>May over was. Be signs two. Spirit. Brought said dry own firmament lesser best sixth deep
-                            abundantly bearing, him, gathering you
-                            blessed bearing he our position best ticket in month hole deep </p>
-                        <a href="#" class="btn_3">Read More <img src="{% static '' %}img/icon/left_2.svg" alt=""></a>
+                {% for history in ourHistory %}
+                    <div class="col-sm-8 col-lg-4">
+                        <div class="about_text">
+                            <h5>Our History</h5>
+                            <h2>{{history.title}}</h2>
+                            <p>{{history.detail|safe|truncatewords:30}}</p>
+                            <a href="{% url 'about' %}" class="btn_3">Read More <img src="{% static '' %}img/icon/left_2.svg" alt=""></a>
+                        </div>
                     </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </section>
@@ -530,74 +540,25 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-6 col-lg-4">
-                    <div class="single_blog_item">
-                        <div class="single_blog_img">
-                            <img src="{% static '' %}img/team/chefs_1.png" alt="">
-                        </div>
-                        <div class="single_blog_text text-center">
-                            <h3>Adam Billiard</h3>
-                            <p>Chef Master</p>
-                            <div class="social_icon">
-                                <a href="#"> <i class="ti-facebook"></i> </a>
-                                <a href="#"> <i class="ti-twitter-alt"></i> </a>
-                                <a href="#"> <i class="ti-instagram"></i> </a>
-                                <a href="#"> <i class="ti-skype"></i> </a>
+                {% for chef in chefs %}
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="single_blog_item">
+                            <div class="single_blog_img">
+                                <img src="{{chef.avatar.url}}" alt="" height="360" width="330" style="object-fit: cover; border-top-left-radius: 9%; border-top-right-radius: 9%;">
+                            </div>
+                            <div class="single_blog_text text-center">
+                                <h3>{{chef.fullName}}</h3>
+                                <p>{{chef.position}}</p>
+                                <div class="social_icon">
+                                    <a href="{{chef.faceBook}}"> <i class="ti-facebook"></i> </a>
+                                    <a href="{{chef.twitter}}"> <i class="ti-twitter-alt"></i> </a>
+                                    <a href="{{chef.instagram}}"> <i class="ti-instagram"></i> </a>
+                                    <a href="{{chef.skype}}"> <i class="ti-skype"></i> </a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-sm-6 col-lg-4">
-                    <div class="single_blog_item">
-                        <div class="single_blog_img">
-                            <img src="{% static '' %}img/team/chefs_2.png" alt="">
-                        </div>
-                        <div class="single_blog_text text-center">
-                            <h3>Fred Macyard</h3>
-                            <p>Chef Master</p>
-                            <div class="social_icon">
-                                <a href="#"> <i class="ti-facebook"></i> </a>
-                                <a href="#"> <i class="ti-twitter-alt"></i> </a>
-                                <a href="#"> <i class="ti-instagram"></i> </a>
-                                <a href="#"> <i class="ti-skype"></i> </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-4">
-                    <div class="single_blog_item">
-                        <div class="single_blog_img">
-                            <img src="{% static '' %}img/team/chefs_3.png" alt="">
-                        </div>
-                        <div class="single_blog_text text-center">
-                            <h3>Justin Stuard</h3>
-                            <p>Chef Master</p>
-                            <div class="social_icon">
-                                <a href="#"> <i class="ti-facebook"></i> </a>
-                                <a href="#"> <i class="ti-twitter-alt"></i> </a>
-                                <a href="#"> <i class="ti-instagram"></i> </a>
-                                <a href="#"> <i class="ti-skype"></i> </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-4 d-none d-sm-block d-lg-none">
-                    <div class="single_blog_item">
-                        <div class="single_blog_img">
-                            <img src="{% static '' %}img/team/chefs_1.png" alt="">
-                        </div>
-                        <div class="single_blog_text text-center">
-                            <h3>Justin Stuard</h3>
-                            <p>Chef Master</p>
-                            <div class="social_icon">
-                                <a href="#"> <i class="ti-facebook"></i> </a>
-                                <a href="#"> <i class="ti-twitter-alt"></i> </a>
-                                <a href="#"> <i class="ti-instagram"></i> </a>
-                                <a href="#"> <i class="ti-skype"></i> </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </section>
@@ -688,42 +649,17 @@
             <div class="row">
                 <div class="col-lg-11">
                     <div class="client_review_part owl-carousel">
-                        <div class="client_review_single media">
-                            <div class="client_img align-self-center">
-                                <img src="{% static '' %}img/client/client_1.png" alt="">
+                        {% for fb in feedback %}
+                            <div class="client_review_single media">
+                                <div class="client_img align-self-center">
+                                    <img src="{{fb.customer_avatar.url}}" alt="" style="border-radius: 50%; object-fit: cover;">
+                                </div>
+                                <div class="client_review_text media-body">
+                                    <p>{{fb.feedback|safe}}</p>
+                                    <h4>{{fb.customer_name}}</h4>
+                                </div>
                             </div>
-                            <div class="client_review_text media-body">
-                                <p>Also made from. Give may saying meat there from heaven it lights face had is gathered
-                                    god dea earth light for life may itself shall whales made they're blessed whales
-                                    also made from give
-                                    may saying meat. There from heaven it lights face had amazing place</p>
-                                <h4>Mosan Cameron, <span>Executive of fedex</span></h4>
-                            </div>
-                        </div>
-                        <div class="client_review_single media">
-                            <div class="client_img align-self-center">
-                                <img src="{% static '' %}img/client/client_1.png " alt="">
-                            </div>
-                            <div class="client_review_text media-body">
-                                <p>Also made from. Give may saying meat there from heaven it lights face had is gathered
-                                    god dea earth light for life may itself shall whales made they're blessed whales
-                                    also made from give
-                                    may saying meat. There from heaven it lights face had amazing place</p>
-                                <h4>Mosan Cameron, <span>Executive of fedex</span></h4>
-                            </div>
-                        </div>
-                        <div class="client_review_single media">
-                            <div class="client_img align-self-center">
-                                <img src="{% static '' %}img/client/client_1.png" alt="">
-                            </div>
-                            <div class="client_review_text media-body">
-                                <p>Also made from. Give may saying meat there from heaven it lights face had is gathered
-                                    god dea earth light for life may itself shall whales made they're blessed whales
-                                    also made from give
-                                    may saying meat. There from heaven it lights face had amazing place</p>
-                                <h4>Mosan Cameron, <span>Executive of fedex</span></h4>
-                            </div>
-                        </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
@@ -743,66 +679,26 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-6 col-lg-4">
-                    <div class="single_blog_item">
-                        <div class="single_blog_img">
-                            <img src="{% static '' %}img/blog/blog_1.png" alt="">
-                        </div>
-                        <div class="single_blog_text">
-                            <div class="date">
-                                <a href="#" class="date_item">Apr 06, 2019 </a>
-                                <a href="#" class="date_item"> <span>#</span> Food News </a>
+                {% for recentPost in latestPosts %}
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="single_blog_item">
+                            <div class="single_blog_img">
+                                <a href="{% url 'postDetail' post_id=recentPost.id %}">
+                                    <img src="{{recentPost.image.url}}" alt="" height="360" width="330" style="object-fit: cover; border-top-left-radius: 9%;">
+                                </a>
                             </div>
-                            <h3><a href="blog.html">Adama kind deep gatherin first over fter his great</a></h3>
-                            <a href="#" class="btn_3">Read More <img src="{% static '' %}img/icon/left_1.svg" alt=""></a>
+                            <div class="single_blog_text">
+                                <div class="date">
+                                    <a class="date_item">{{recentPost.created_at| date:"M d, Y"}} </a>
+                                    <a class="date_item"> <span>#</span> Food News </a>
+                                </div>
+                                <h3><a href="{% url 'postDetail' post_id=recentPost.id %}">{{recentPost.title|truncatewords:8}}</a></h3>
+                                <a href="{% url 'postDetail' post_id=recentPost.id %}" class="btn_3">Read More <img src="{% static '' %}img/icon/left_1.svg" alt=""></a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-sm-6 col-lg-4">
-                    <div class="single_blog_item">
-                        <div class="single_blog_img">
-                            <img src="{% static '' %}img/blog/blog_2.png" alt="">
-                        </div>
-                        <div class="single_blog_text">
-                            <div class="date">
-                                <a href="#" class="date_item">Apr 06, 2019 </a>
-                                <a href="#" class="date_item"> <span>#</span> Food News </a>
-                            </div>
-                            <h3><a href="blog.html">Adama kind deep gatherin first over fter his great</a></h3>
-                            <a href="#" class="btn_3">Read More <img src="{% static '' %}img/icon/left_1.svg" alt=""></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-4">
-                    <div class="single_blog_item">
-                        <div class="single_blog_img">
-                            <img src="{% static '' %}img/blog/blog_3.png" alt="">
-                        </div>
-                        <div class="single_blog_text">
-                            <div class="date">
-                                <a href="#" class="date_item">Apr 06, 2019 </a>
-                                <a href="#" class="date_item"> <span>#</span> Food News </a>
-                            </div>
-                            <h3><a href="blog.html">Adama kind deep gatherin first over fter his great</a></h3>
-                            <a href="#" class="btn_3">Read More <img src="{% static '' %}img/icon/left_1.svg" alt=""></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-4 d-none d-sm-block d-lg-none">
-                    <div class="single_blog_item">
-                        <div class="single_blog_img">
-                            <img src="{% static '' %}img/blog/blog_1.png" alt="">
-                        </div>
-                        <div class="single_blog_text">
-                            <div class="date">
-                                <a href="#" class="date_item">Apr 06, 2019 </a>
-                                <a href="#" class="date_item"> <span>#</span> Food News </a>
-                            </div>
-                            <h3><a href="blog.html">Adama kind deep gatherin first over fter his great</a></h3>
-                            <a href="#" class="btn_3">Read More <img src="{% static '' %}img/icon/left_1.svg" alt=""></a>
-                        </div>
-                    </div>
-                </div>
+                {% endfor %}
+                
             </div>
         </div>
     </section>

@@ -50,9 +50,21 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="menu_btn">
-                            <a href="#" class="single_page_btn d-none d-sm-block">book a tabel</a>
-                        </div>
+
+                        {% if user.id is not None %}
+                            <div class="menu_btn">
+                                <a href="{% url 'logout' %}" class="single_page_btn d-none d-sm-block">Hi, {{user.username}}</a>
+                            </div>
+                        {% else %}
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'login' %}">Đăng nhập</a>
+                                </li>
+                            </ul>
+                            <div class="menu_btn">
+                                <a href="{% url 'register' %}" class="single_page_btn d-none d-sm-block">Đăng ký</a>
+                            </div>
+                        {% endif %}
                     </nav>
                 </div>
             </div>

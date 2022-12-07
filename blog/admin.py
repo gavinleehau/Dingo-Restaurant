@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import author, blog
+from .models import author, blog, InstagramFeeds
 
 # Register your models here.
 
@@ -11,3 +11,4 @@ class PostAdmin(admin.ModelAdmin):
 
 admin.site.register(author)
 admin.site.register(blog, PostAdmin)
+admin.site.register(InstagramFeeds)

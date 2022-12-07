@@ -101,7 +101,7 @@
                     </div>
                     <div class="blog-author">
                         <div class="media align-items-center">
-                            <img src="{{post_detail.author.avatar.url}}" alt="" />
+                            <img src="{{post_detail.author.avatar.url}}" alt="" style="object-fit: cover; object-position: 50% 50%;" />
                             <div class="media-body">
                                 <a>
                                     <h4>{{post_detail.author}}</h4>
@@ -173,7 +173,7 @@
                             <h3 class="widget_title">Recent Post</h3>
                             {% for recentPost in recentPosts %}
                                 <div class="media post_item">
-                                    <img src="{{recentPost.image.url}}" alt="post" height="80" width="80" background-position="center" background-repeat="no-repeat"/>
+                                    <img src="{{recentPost.image.url}}" alt="post" height="80" width="80" style="object-fit: cover;"/>
                                     <div class="media-body">
                                         <a href="{% url 'postDetail' post_id=recentPost.id %}">
                                             <h3>{{recentPost.title|truncatewords:4}}</h3>

@@ -15,74 +15,25 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-6 col-lg-4">
-                    <div class="single_blog_item">
-                        <div class="single_blog_img">
-                            <img src="{% static '' %}img/team/chefs_1.png" alt="">
-                        </div>
-                        <div class="single_blog_text text-center">
-                            <h3>Adam Billiard</h3>
-                            <p>Chef Master</p>
-                            <div class="social_icon">
-                                <a href="#"> <i class="ti-facebook"></i> </a>
-                                <a href="#"> <i class="ti-twitter-alt"></i> </a>
-                                <a href="#"> <i class="ti-instagram"></i> </a>
-                                <a href="#"> <i class="ti-skype"></i> </a>
+                {% for chef in chefs %}
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="single_blog_item">
+                            <div class="single_blog_img">
+                                <img src="{{chef.avatar.url}}" alt="" height="360" width="330" style="object-fit: cover; border-top-left-radius: 9%; border-top-right-radius: 9%;">
+                            </div>
+                            <div class="single_blog_text text-center">
+                                <h3>{{chef.fullName}}</h3>
+                                <p>{{chef.position}}</p>
+                                <div class="social_icon">
+                                    <a href="#"> <i class="ti-facebook"></i> </a>
+                                    <a href="#"> <i class="ti-twitter-alt"></i> </a>
+                                    <a href="#"> <i class="ti-instagram"></i> </a>
+                                    <a href="#"> <i class="ti-skype"></i> </a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-sm-6 col-lg-4">
-                    <div class="single_blog_item">
-                        <div class="single_blog_img">
-                            <img src="{% static '' %}img/team/chefs_2.png" alt="">
-                        </div>
-                        <div class="single_blog_text text-center">
-                            <h3>Fred Macyard</h3>
-                            <p>Chef Master</p>
-                            <div class="social_icon">
-                                <a href="#"> <i class="ti-facebook"></i> </a>
-                                <a href="#"> <i class="ti-twitter-alt"></i> </a>
-                                <a href="#"> <i class="ti-instagram"></i> </a>
-                                <a href="#"> <i class="ti-skype"></i> </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-4">
-                    <div class="single_blog_item">
-                        <div class="single_blog_img">
-                            <img src="{% static '' %}img/team/chefs_3.png" alt="">
-                        </div>
-                        <div class="single_blog_text text-center">
-                            <h3>Justin Stuard</h3>
-                            <p>Chef Master</p>
-                            <div class="social_icon">
-                                <a href="#"> <i class="ti-facebook"></i> </a>
-                                <a href="#"> <i class="ti-twitter-alt"></i> </a>
-                                <a href="#"> <i class="ti-instagram"></i> </a>
-                                <a href="#"> <i class="ti-skype"></i> </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-4 d-none d-sm-block d-lg-none">
-                    <div class="single_blog_item">
-                        <div class="single_blog_img">
-                            <img src="{% static '' %}img/team/chefs_1.png" alt="">
-                        </div>
-                        <div class="single_blog_text text-center">
-                            <h3>Justin Stuard</h3>
-                            <p>Chef Master</p>
-                            <div class="social_icon">
-                                <a href="#"> <i class="ti-facebook"></i> </a>
-                                <a href="#"> <i class="ti-twitter-alt"></i> </a>
-                                <a href="#"> <i class="ti-instagram"></i> </a>
-                                <a href="#"> <i class="ti-skype"></i> </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </section>

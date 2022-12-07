@@ -28,7 +28,8 @@ urlpatterns = [
     path('blog/', include('blog.urls')),
     path('contact/', include('contact.urls')),
     path('menu/', include('menu.urls')),
-    # path('', include('user.urls')),
+    path('chefs/', include('chefs.urls')),
+    path('', include('user.urls')),
 ]
 
 if settings.DEBUG:
