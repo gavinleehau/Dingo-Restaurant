@@ -37,6 +37,7 @@ class blog(models.Model):
     note       = models.TextField('Ghi chú', null=True)
 
     class Meta:
+        ordering = ['-id']
         verbose_name = _("Bài viết")
         verbose_name_plural = _("Bài viết")
 
