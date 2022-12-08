@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy as _
 import datetime
+from datetime import datetime
 
 
 # Create your models here.
@@ -24,8 +25,8 @@ class author(models.Model):
 
 class blog(models.Model):
     STATUS = (
-        (0,"Bản thảo"),
-        (1,"Bản hoàn chỉnh")
+        (0,"Bản hoàn chỉnh"),
+        (1,"Bản thảo")
     )
     
     author     = models.ForeignKey(author, on_delete=models.CASCADE, null=True)

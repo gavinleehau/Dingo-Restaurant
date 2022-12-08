@@ -110,54 +110,22 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-6 col-lg-4">
-                    <div class="single_blog_item">
-                        <div class="single_blog_img">
-                            <img src="{% static '' %}img/food_item/food_item_1.png" alt="">
-                        </div>
-                        <div class="single_blog_text">
-                            <h3>Indian Burger</h3>
-                            <p>Was brean shed moveth day yielding tree yielding day were female and </p>
-                            <a href="#" class="btn_3">Read More <img src="{% static '' %}img/icon/left_2.svg" alt=""></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-4">
-                    <div class="single_blog_item">
-                        <div class="single_blog_img">
-                            <img src="{% static '' %}img/food_item/food_item_2.png" alt="">
-                        </div>
-                        <div class="single_blog_text">
-                            <h3>Cremy Noodles</h3>
-                            <p>Was brean shed moveth day yielding tree yielding day were female and </p>
-                            <a href="#" class="btn_3">Read More <img src="{% static '' %}img/icon/left_2.svg" alt=""></a>
+            {% for food in special %}
+                {% if food.status == True %}
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="single_blog_item">
+                            <div class="single_blog_img">
+                                <img src="{{food.image.url}}" alt="" height="360" width="330" style="object-fit: cover; border-top-left-radius: 9%; border-top-right-radius: 9%;">
+                            </div>
+                            <div class="single_blog_text">
+                                <h3>{{food.foodName}}</h3>
+                                <p>{{food.description|safe|truncatewords:12}} </p>
+                                <a href="{% url 'menu' %}" class="btn_3">Read More <img src="{% static '' %}img/icon/left_2.svg" alt=""></a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-sm-6 col-lg-4">
-                    <div class="single_blog_item">
-                        <div class="single_blog_img">
-                            <img src="{% static '' %}img/food_item/food_item_3.png" alt="">
-                        </div>
-                        <div class="single_blog_text">
-                            <h3>Honey Meat</h3>
-                            <p>Was brean shed moveth day yielding tree yielding day were female and </p>
-                            <a href="#" class="btn_3">Read More <img src="{% static '' %}img/icon/left_2.svg" alt=""></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-4 d-none d-sm-block d-lg-none">
-                    <div class="single_blog_item">
-                        <div class="single_blog_img">
-                            <img src="{% static '' %}img/food_item/food_item_1.png" alt="">
-                        </div>
-                        <div class="single_blog_text">
-                            <h3>Cremy Noodles</h3>
-                            <p>Was brean shed moveth day yielding tree yielding day were female and </p>
-                            <a href="#" class="btn_3">Read More <img src="{% static '' %}img/icon/left_2.svg" alt=""></a>
-                        </div>
-                    </div>
-                </div>
+                {% endif %}
+            {% endfor %}
             </div>
         </div>
     </section>
@@ -239,10 +207,10 @@
                                     {% if food.status == True %}
                                         <div class="col-sm-6 col-lg-6">
                                             <div class="single_food_item media">
-                                                <img src="{{food.image.url}}" class="mr-3" alt="..." width="165" height="165">
+                                                <img src="{{food.image.url}}" class="mr-3" alt="..." width="165" height="165" style="object-fit: cover;">
                                                 <div class="media-body align-self-center">
                                                     <h3>{{food.foodName}}</h3>
-                                                    <p>{{food.description}}</p>
+                                                    <p>{{food.description|truncatewords:5}}</p>
                                                     <h5>{{food.price|intcomma}}<sup>đ</sup></h5>
                                                 </div>
                                             </div>
@@ -258,10 +226,10 @@
                                     {% if food.status == True %}
                                         <div class="col-sm-6 col-lg-6">
                                             <div class="single_food_item media">
-                                                <img src="{{food.image.url}}" class="mr-3" alt="..." width="165" height="165">
+                                                <img src="{{food.image.url}}" class="mr-3" alt="..." width="165" height="165" style="object-fit: cover;">
                                                 <div class="media-body align-self-center">
                                                     <h3>{{food.foodName}}</h3>
-                                                    <p>{{food.description}}</p>
+                                                    <p>{{food.description|truncatewords:10}}</p>
                                                     <h5>{{food.price|intcomma}}<sup>đ</sup></h5>
                                                 </div>
                                             </div>
@@ -277,10 +245,10 @@
                                     {% if food.status == True %}
                                         <div class="col-sm-6 col-lg-6">
                                             <div class="single_food_item media">
-                                                <img src="{{food.image.url}}" class="mr-3" alt="..." width="165" height="165">
+                                                <img src="{{food.image.url}}" class="mr-3" alt="..." width="165" height="165" style="object-fit: cover;">
                                                 <div class="media-body align-self-center">
                                                     <h3>{{food.foodName}}</h3>
-                                                    <p>{{food.description}}</p>
+                                                    <p>{{food.description|truncatewords:10}}</p>
                                                     <h5>{{food.price|intcomma}}<sup>đ</sup></h5>
                                                 </div>
                                             </div>
@@ -296,10 +264,10 @@
                                     {% if food.status == True %}
                                         <div class="col-sm-6 col-lg-6">
                                             <div class="single_food_item media">
-                                                <img src="{{food.image.url}}" class="mr-3" alt="..." width="165" height="165">
+                                                <img src="{{food.image.url}}" class="mr-3" alt="..." width="165" height="165" style="object-fit: cover;">
                                                 <div class="media-body align-self-center">
                                                     <h3>{{food.foodName}}</h3>
-                                                    <p>{{food.description}}</p>
+                                                    <p>{{food.description|truncatewords:10}}</p>
                                                     <h5>{{food.price|intcomma}}<sup>đ</sup></h5>
                                                 </div>
                                             </div>
@@ -448,23 +416,25 @@
             </div>
             <div class="row">
                 {% for recentPost in latestPosts %}
-                    <div class="col-sm-6 col-lg-4">
-                        <div class="single_blog_item">
-                            <div class="single_blog_img">
-                                <a href="{% url 'postDetail' post_id=recentPost.id %}">
-                                    <img src="{{recentPost.image.url}}" alt="" height="360" width="330" style="object-fit: cover; border-top-left-radius: 9%;">
-                                </a>
-                            </div>
-                            <div class="single_blog_text">
-                                <div class="date">
-                                    <a class="date_item">{{recentPost.created_at| date:"M d, Y"}} </a>
-                                    <a class="date_item"> <span>#</span> Food News </a>
+                    {% if recentPost.status == 0 %}
+                        <div class="col-sm-6 col-lg-4">
+                            <div class="single_blog_item">
+                                <div class="single_blog_img">
+                                    <a href="{% url 'postDetail' post_id=recentPost.id %}">
+                                        <img src="{{recentPost.image.url}}" alt="" height="360" width="330" style="object-fit: cover; border-top-left-radius: 9%;">
+                                    </a>
                                 </div>
-                                <h3><a href="{% url 'postDetail' post_id=recentPost.id %}">{{recentPost.title|truncatewords:8}}</a></h3>
-                                <a href="{% url 'postDetail' post_id=recentPost.id %}" class="btn_3">Read More <img src="{% static '' %}img/icon/left_1.svg" alt=""></a>
+                                <div class="single_blog_text">
+                                    <div class="date">
+                                        <a class="date_item">{{recentPost.created_at| date:"M d, Y"}} </a>
+                                        <a class="date_item"> <span>#</span> Food News </a>
+                                    </div>
+                                    <h3><a href="{% url 'postDetail' post_id=recentPost.id %}">{{recentPost.title|truncatewords:8}}</a></h3>
+                                    <a href="{% url 'postDetail' post_id=recentPost.id %}" class="btn_3">Read More <img src="{% static '' %}img/icon/left_1.svg" alt=""></a>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    {% endif %}
                 {% endfor %}
                 
             </div>

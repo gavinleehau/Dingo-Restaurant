@@ -20,7 +20,7 @@ def home(request):
 		data.save()
 		return redirect('success_page')
 
-	latestPosts = blog.objects.all().order_by('-id')[0:4]
+	latestPosts = blog.objects.all().order_by('-id')[0:3]
 	chefs 		= Chefs.objects.all().order_by('-id')[0:3]
 	ourHistory  = History.objects.all()
 	feedback    = Feedback.objects.all().order_by('-id')[0:5]

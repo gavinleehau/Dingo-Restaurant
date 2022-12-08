@@ -11,28 +11,29 @@
             <div class="row">
                 <div class="col-lg-8 mb-5 mb-lg-0">
                     <div class="blog_left_sidebar">
-
                         {% for post in page.object_list %}
-                            <article class="blog_item">
-                                <div class="blog_item_img">
-                                    <img class="card-img rounded-0" src="{{post.image.url}}" alt="">
-                                    <!-- <a class="blog_item_date">
-                                        <h3>{{post.date.day}}</h3> 
-                                        <p>{{post.date|date:'F'}}</p> 
-                                    </a> -->
-                                </div>
+                            {% if post.status == 0 %}
+                                <article class="blog_item">
+                                    <div class="blog_item_img">
+                                        <img class="card-img rounded-0" src="{{post.image.url}}" alt="" height="500" style="object-fit: cover;">
+                                        <!-- <a class="blog_item_date">
+                                            <h3>{{post.date.day}}</h3> 
+                                            <p>{{post.date|date:'F'}}</p> 
+                                        </a> -->
+                                    </div>
 
-                                <div class="blog_details">
-                                    <a class="d-inline-block" href="{% url 'postDetail' post_id=post.id %}">
-                                        <h2>{{post.title}}</h2>
-                                    </a>
-                                    <p>{{post.content|striptags|safe|truncatewords:30}}</p>
-                                    <ul class="blog-info-link">
-                                        <li><a ><i class="far fa-user"></i> Posted by <span style="color: #ff6426; font-weight: bold;"> {{post.author}} </span></a></li>
-                                        <li><a ><i class="far fa-clock"></i> {{post.created_at|date:"M d, Y"}}</a></li>
-                                    </ul>
-                                </div>
-                            </article>
+                                    <div class="blog_details">
+                                        <a class="d-inline-block" href="{% url 'postDetail' post_id=post.id %}">
+                                            <h2>{{post.title}}</h2>
+                                        </a>
+                                        <p>{{post.content|striptags|safe|truncatewords:30}}</p>
+                                        <ul class="blog-info-link">
+                                            <li><a ><i class="far fa-user"></i> Posted by <span style="color: #ff6426; font-weight: bold;"> {{post.author}} </span></a></li>
+                                            <li><a ><i class="far fa-clock"></i> {{post.created_at|date:"d-m-Y"}}</a></li>
+                                        </ul>
+                                    </div>
+                                </article>
+                            {% endif %}
                         {% endfor %}
                         
                         <!-- paginator  -->
@@ -144,15 +145,17 @@
                         <aside class="single_sidebar_widget popular_post_widget">
                             <h3 class="widget_title">Recent Post</h3>
                             {% for recentPost in recentPosts %}
-                                <div class="media post_item">
-                                    <a href=""><img src="{{recentPost.image.url}}" alt="post" height="80" width="80" style="object-fit: cover;" ></a>
-                                    <div class="media-body">
-                                        <a href="{% url 'postDetail' post_id=recentPost.id %}">
-                                            <h3>{{recentPost.title| truncatewords:4}}</h3>
-                                        </a>
-                                        <p>{{recentPost.created_at| timesince}}</p>
+                                {% if recentPost.status == 0 %}
+                                    <div class="media post_item">
+                                        <a href=""><img src="{{recentPost.image.url}}" alt="post" height="80" width="80" style="object-fit: cover;" ></a>
+                                        <div class="media-body">
+                                            <a href="{% url 'postDetail' post_id=recentPost.id %}">
+                                                <h3>{{recentPost.title| truncatewords:4}}</h3>
+                                            </a>
+                                            <p>{{recentPost.created_at| timesince}}</p>
+                                        </div>
                                     </div>
-                                </div>
+                                {% endif %}
                             {% endfor %}
                         </aside>
 
