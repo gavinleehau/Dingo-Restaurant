@@ -4,6 +4,7 @@ from statistics import mode
 from django.db import models
 from django.contrib.auth.models import User, AbstractBaseUser
 from django.utils.translation import gettext_lazy as _
+from django.utils.safestring import mark_safe
 
 # Create your models here.
 
@@ -28,8 +29,8 @@ class Staff(models.Model):
     )
 
     STATUS = (
-        (0,"Active"),
-        (1,"Inactive")
+        (0,"Hoạt động"),
+        (1,"Không hoạt động")
     )
 
     name = models.CharField('Tên Nhân viên:', max_length=100)
@@ -43,6 +44,10 @@ class Staff(models.Model):
     homeTown = models.CharField('Quê quán:', max_length=100)
     joinedDate = models.DateField('Ngày vào làm')
     status = models.IntegerField('Trạng thái', choices=STATUS, default=0)
+
+    def image_tag(self):
+        return mark_safe('<img src="{}" height="50", width="50px";/>'.format(self.avatar.url))
+    image_tag.short_description='Image'
 
     class Meta:
         verbose_name = _("Nhân viên")

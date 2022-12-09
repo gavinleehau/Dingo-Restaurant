@@ -5,8 +5,6 @@ from django.conf.locale.es import formats as es_formats
 # Register your models here.
 
 class PostAdmin(admin.ModelAdmin):
-    def admin_created_at(self, obj):
-        return obj.created_at.strftime('%d-%m-%Y')
     list_display = ('title', 'author', 'created_at', 'image_tag', 'status')
     list_filter = ('status', )
     # search_fields = ['title', 'content']
