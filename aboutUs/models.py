@@ -26,7 +26,6 @@ class RestaurantInfo(models.Model):
         verbose_name_plural = _("Thông tin nhà hàng")
 
 
-
 class History(models.Model):
     title  = models.TextField('Tiêu đề', null=True)
     detail = RichTextUploadingField('Nội dung')

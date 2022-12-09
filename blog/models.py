@@ -29,10 +29,10 @@ class blog(models.Model):
         (1,"Bản thảo")
     )
     
-    author     = models.ForeignKey(author, on_delete=models.CASCADE, null=True)
+    author     = models.ForeignKey(author, on_delete=models.CASCADE, null=True, verbose_name=_("Tác giả"),)
     title      = models.CharField('Tiêu đề', max_length=1000)
     created_at = models.DateTimeField('Ngày đăng')
-    image      = models.ImageField('Ảnh đại diện bài viết')
+    image      = models.ImageField(verbose_name=_("Ảnh đại diện bài viết"))
     content    = RichTextUploadingField('Nội dung')
     status     = models.IntegerField('Trạng thái', choices=STATUS, default=0)
     note       = models.TextField('Ghi chú', null=True)

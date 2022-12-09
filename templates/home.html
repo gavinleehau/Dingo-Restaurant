@@ -56,7 +56,7 @@
                         {% else %}
                             <ul class="navbar-nav">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{% url 'login' %}">Đăng nhập</a>
+                                    <a class="nav-link" href="{% url 'login' %}" style="color: white;">Đăng nhập</a>
                                 </li>
                             </ul>
                             <div class="menu_btn">
@@ -110,7 +110,7 @@
                 </div>
             </div>
             <div class="row">
-            {% for food in special %}
+            {% for food in ExclusiveItems %}
                 {% if food.status == True %}
                     <div class="col-sm-6 col-lg-4">
                         <div class="single_blog_item">

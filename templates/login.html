@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{% static '' %}css/loginandregister.css">
     <title>Document</title>
 </head>
-<body class="align">
+<body class="align" style="background: white;">
 
     <div class="login-page">
         <div class="form">
@@ -22,8 +22,8 @@
                         <h5 id="messages" style="color:red; text-align: center;"> {{message}} </h5>
                     </div>
                 {% endfor %}
-                <button>Đăng nhập</button>
-                <p class="message">Bạn chưa có tài khoản? <a href="{% url 'register' %}">Đăng ký</a></p>
+                <button style="background:#ff6426">Đăng nhập</button>
+                <p class="message">Bạn chưa có tài khoản? <a href="{% url 'register' %}" style="color:#ff6426">Đăng ký</a></p>
             </form>
         </div>
     </div>

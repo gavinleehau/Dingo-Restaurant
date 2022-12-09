@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{% static '' %}css/loginandregister.css">
     <title>Document</title>
 </head>
-<body class="align">
+<body class="align" style="background: white;">
     <!-- Register -->
     <div class="login-page">
         <div class="form">
@@ -20,13 +20,13 @@
                 <input type="email" name="email" placeholder="Email"/>
                 <input type="password" name="password1" placeholder="Mật khẩu"/>
                 <input type="password" name="password2" placeholder="Nhập lại mật khẩu"/>
-                <button>Đăng ký</button>
+                <button style="background: #ff6426;">Đăng ký</button>
                 {% for message in messages %}
                     <div class="form-input pt-30">
                         <h3 id="messages" style="color:red; text-align: center;"> {{message}} </h3>
                     </div>
                 {% endfor %}
-                <p class="message">Bạn đã có tài khoản? <a href="{% url 'login' %}">Đăng nhập</a></p>
+                <p class="message">Bạn đã có tài khoản? <a href="{% url 'login' %}" style="color:#ff6426">Đăng nhập</a></p>
             </form>
         </div>
     </div>
