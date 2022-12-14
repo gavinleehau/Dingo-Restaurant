@@ -1,543 +1,405 @@
-<!doctype html>
-<html lang="en">
+{% extends "base.html" %}
 {% load static %}
 {% load humanize %}
-{% include 'head.html' %}
+{% block pageName %} Trang chủ {% endblock pageName %}
+{% block main %}
 
-<body>
-    <!--::header part start::-->
-    <header class="main_menu home_menu">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-12">
-                    <nav class="navbar navbar-expand-lg navbar-light">
-                        <a class="navbar-brand" href="{% url 'home' %}"> <img src="{% static '' %}img/logo.png" alt="logo"> </a>
-                        <button class="navbar-toggler" type="button" data-toggle="collapse"
-                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
 
-                        <div class="collapse navbar-collapse main-menu-item justify-content-end"
-                            id="navbarSupportedContent">
-                            <ul class="navbar-nav">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{% url 'home' %}">Home</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{% url 'about' %}">About</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{% url 'menu' %}">Menu</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{% url 'chefs' %}">Chefs</a>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="dropdown-item" href="{% url 'showPosts' %}">Blog</a>
-                                    <!-- <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Blog
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="blog.html">Blog</a>
-                                        <a class="dropdown-item" href="single-blog.html">Single blog</a>
-                                        <a class="dropdown-item" href="elements.html">Elements</a>
-                                    </div> -->
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{% url 'contact' %}">Contact</a>
-                                </li>
-                            </ul>
-                        </div>
-                        {% if user.id is not None %}
-                        <div class="menu_btn">
-                            <a href="{% url 'logout' %}" class="btn_1 d-none d-sm-block">Hi, {{user.userprofile.name}}</a>
-                        </div>
-                        {% else %}
-                            <ul class="navbar-nav">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{% url 'login' %}" style="color: white;">Đăng nhập</a>
-                                </li>
-                            </ul>
-                            <div class="menu_btn">
-                                <a href="{% url 'register' %}" class="btn_1 d-none d-sm-block">Đăng ký</a>
-                            </div>
-                        {% endif %}
-                        
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </header>
-    <!-- Header part end-->
+	<!-- Slide mon-->
+	<div class="slide">
+		<div id="slidemonantren" class="carousel slide" data-ride="carousel">
+			<ol class="carousel-indicators">
+				<li data-target="#slidemonantren" data-slide-to="0" class="active"></li>
+				<li data-target="#slidemonantren" data-slide-to="1"></li>
+				<li data-target="#slidemonantren" data-slide-to="2"></li>
+			</ol>
+			<div class="carousel-inner" role="listbox">
+				<div class="slidetren carousel-item  active" style="background-image: url('/static/images/01.jpg')">
+					<div class="chu">
+						<h2>The Fresh And Tasty Burgers</h2>
+						<p>Lorem ipsum, dolor sit amet consectetur adipisicing, elit. <br>Nesciunt sed iusto laborum, reprehenderit ipsum, sit sunt saepe incidunt. Consequatur, iure.</p>
+						<a href="" class="nutslide btn btn-warning">Buy Now</a>
+					</div>
+				</div>
+				<!-- END 1 carousel -->
+				<div class="slidetren carousel-item " style="background-image: url('/static/images/02.jpg')">
+					<div class="chu">
+						<h2>The Fresh And Tasty Burgers</h2>
+						<p>Lorem ipsum, dolor sit amet consectetur adipisicing, elit.<br>Nesciunt sed iusto laborum, reprehenderit ipsum, sit sunt saepe incidunt. Consequatur, iure.</p>
+						<a href="" class="nutslide btn btn-warning">Buy Now</a>
+					</div>
+				</div>
+				<!-- END 1 carousel -->
+				<div class="slidetren carousel-item " style="background-image: url('/static/images/03.jpg')"> 
+					<div class="chu">
+						<h2>The Fresh And Tasty Burgers</h2>
+						<p>Lorem ipsum, dolor sit amet consectetur adipisicing, elit. <br> Nesciunt sed iusto laborum, reprehenderit ipsum, sit sunt saepe incidunt. Consequatur, iure.</p>
+						<a href="" class="nutslide btn btn-warning">Buy Now</a>
+					</div>
+				</div>
+				<!-- END 1 carousel -->
+			</div>
+			<a class="left carousel-control" href="#slidemonantren" role="button" data-slide="prev">
+				<span class="icon-prev" aria-hidden="true"></span>
+				<span class="sr-only">Previous</span>
+			</a>
+			<a class="right carousel-control" href="#slidemonantren" role="button" data-slide="next">
+				<span class="icon-next" aria-hidden="true"></span>
+				<span class="sr-only">Next</span>
+			</a>
+		</div>
+	</div>
+	<!-- END slide -->
 
-    <!-- banner part start-->
-    <section class="banner_part">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <div class="banner_text">
-                        <div class="banner_text_iner">
-                            <h5>Expensive but the best</h5>
-                            <h1>Deliciousness jumping into the mouth</h1>
-                            <p>Together creeping heaven upon third dominion be upon won't darkness rule land
-                                behold it created good saw after she'd Our set living. Signs midst dominion
-                                creepeth morning</p>
-                            <div class="banner_btn">
-                                <div class="banner_btn_iner">
-                                    <a href="#reservation" class="btn_2">Reservation <img src="{% static '' %}img/icon/left_1.svg" alt=""></a>
-                                </div>
-                                <a href="https://www.youtube.com/watch?v=pBFQdxA-apI" class="popup-youtube video_popup">
-                                    <span><img src="{% static '' %}img/icon/play.svg" alt=""></span> Watch our story</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- banner part start-->
+	
+	<div class="badichvu">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-4 wow fadeInUp">
+					<a href="">
+						<img src="images/bvd1.jpg" alt="" class="img-fluid"></a>
+						<h3>câu chuyện của chúng tôi</h3>
+						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa explicabo quasi ad placeat sapiente ab ipsam corporis consectetur molestiabvd2</p>
+						<a href="" class="readmore">Readmore</a>
+				</div>
 
-    <!--::exclusive_item_part start::-->
-    <section class="exclusive_item_part blog_item_section">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-5">
-                    <div class="section_tittle">
-                        <p>Popular Dishes</p>
-                        <h2>Our Exclusive Items</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-            {% for food in ExclusiveItems %}
-                {% if food.status == True %}
-                    <div class="col-sm-6 col-lg-4">
-                        <div class="single_blog_item">
-                            <div class="single_blog_img">
-                                <img src="{{food.image.url}}" alt="" height="360" width="330" style="object-fit: cover; border-top-left-radius: 9%; border-top-right-radius: 9%;">
-                            </div>
-                            <div class="single_blog_text">
-                                <h3>{{food.foodName}}</h3>
-                                <p>{{food.description|safe|truncatewords:12}} </p>
-                                <a href="{% url 'menu' %}" class="btn_3">Read More <img src="{% static '' %}img/icon/left_2.svg" alt=""></a>
-                            </div>
-                        </div>
-                    </div>
-                {% endif %}
-            {% endfor %}
-            </div>
-        </div>
-    </section>
-    <!--::exclusive_item_part end::-->
+				<div class="col-sm-4 wow fadeInDown">
+					<a href="">
+						<img src="images/bvd2.jpg" alt="" class="img-fluid"></a>
+						<h3>câu chuyện của chúng tôi</h3>
+						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa explicabo quasi ad placeat sapiente ab ipsam corporis consectetur molestiabvd2</p>
+						<a href="" class="readmore">Readmore</a>
+				</div>
 
-    <!-- about part start-->
-    <section class="about_part">
-        <div class="container-fluid">
-            <div class="row align-items-center">
-                <div class="col-sm-4 col-lg-5 offset-lg-1">
-                    <div class="about_img">
-                        <img src="{% static '' %}img/about.png" alt="">
-                    </div>
-                </div>
-                {% for history in ourHistory %}
-                    <div class="col-sm-8 col-lg-4">
-                        <div class="about_text">
-                            <h5>Our History</h5>
-                            <h2>{{history.title}}</h2>
-                            <p>{{history.detail|safe|truncatewords:30}}</p>
-                            <a href="{% url 'about' %}" class="btn_3">Read More <img src="{% static '' %}img/icon/left_2.svg" alt=""></a>
-                        </div>
-                    </div>
-                {% endfor %}
-            </div>
-        </div>
-    </section>
-    <!-- about part end-->
+				<div class="col-sm-4 wow fadeInUp">
+					<a href=""><img src="images/bvd3.jpg" alt="" class="img-fluid"></a>
+					<h3>câu chuyện của chúng tôi</h3>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa explicabo quasi ad placeat sapiente ab ipsam corporis consectetur molestiabvd2</p>
+					<a href="" class="readmore">Readmore</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- END badichvu -->
 
-    <!-- intro_video_bg start-->
-    <section class="intro_video_bg">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="intro_video_iner text-center">
-                        <h2>Expect The Best</h2>
-                        <div class="intro_video_icon">
-                            <a id="play-video_1" class="video-play-button popup-youtube"
-                                href="https://www.youtube.com/watch?v=pBFQdxA-apI">
-                                <span class="ti-control-play"></span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- intro_video_bg part start-->
+	
+	
+	<div class="khoimenu" >
+		<div class="tieudekhoimenu text-xs-center">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-8 push-sm-2">
+						<span class="tieudephu">Our Delicious Food</span>
+						<h3 class="tieudechinh fontoswald">Fresh And Healthy Food Available</h3>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- END tieudekhoimenu -->
+	</div>
+	<!-- END khoimenu -->
 
-    <!-- food_menu start-->
-    <section class="food_menu gray_bg">
-        <div class="container">
-            <div class="row justify-content-between">
-                <div class="col-lg-5">
-                    <div class="section_tittle">
-                        <p>Popular Menu</p>
-                        <h2>Delicious Food Menu</h2>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="nav nav-tabs food_menu_nav" id="myTab" role="tablist">
-                        <a class="active" id="Special-tab" data-toggle="tab" href="#Special" role="tab"
-                            aria-controls="Special" aria-selected="false">Special <img src="{% static '' %}img/icon/play.svg"
-                                alt="play"></a>
-                        <a id="Breakfast-tab" data-toggle="tab" href="#Breakfast" role="tab" aria-controls="Breakfast"
-                            aria-selected="false">Breakfast <img src="{% static '' %}img/icon/play.svg" alt="play"></a>
-                        <a id="Launch-tab" data-toggle="tab" href="#Launch" role="tab" aria-controls="Launch"
-                            aria-selected="false">Lunch <img src="{% static '' %}img/icon/play.svg" alt="play"></a>
-                        <a id="Dinner-tab" data-toggle="tab" href="#Dinner" role="tab" aria-controls="Dinner"
-                            aria-selected="false">Dinner <img src="{% static '' %}img/icon/play.svg" alt="play"> </a>
-                    </div>
-                </div>
-                <div class="col-lg-12">
-                    <div class="tab-content" id="myTabContent">
-                        <div class="tab-pane fade show active single-member" id="Special" role="tabpanel"
-                            aria-labelledby="Special-tab">
-                            <div class="row">
-                                {% for food in special %}
-                                    {% if food.status == True %}
-                                        <div class="col-sm-6 col-lg-6">
-                                            <div class="single_food_item media">
-                                                <img src="{{food.image.url}}" class="mr-3" alt="..." width="165" height="165" style="object-fit: cover;">
-                                                <div class="media-body align-self-center">
-                                                    <h3>{{food.foodName}}</h3>
-                                                    <p>{{food.description|truncatewords:5}}</p>
-                                                    <h5>{{food.price|intcomma}}<sup>đ</sup></h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    {% endif %}
-                                {% endfor %} 
-                            </div>
-                        </div>
-                        <div class="tab-pane fade single-member" id="Breakfast" role="tabpanel"
-                            aria-labelledby="Breakfast-tab">
-                            <div class="row">
-                                {% for food in breakfast %}
-                                    {% if food.status == True %}
-                                        <div class="col-sm-6 col-lg-6">
-                                            <div class="single_food_item media">
-                                                <img src="{{food.image.url}}" class="mr-3" alt="..." width="165" height="165" style="object-fit: cover;">
-                                                <div class="media-body align-self-center">
-                                                    <h3>{{food.foodName}}</h3>
-                                                    <p>{{food.description|truncatewords:10}}</p>
-                                                    <h5>{{food.price|intcomma}}<sup>đ</sup></h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    {% endif %}
-                                {% endfor %} 
-                            </div>
-                        </div>
-                        <div class="tab-pane fade single-member" id="Launch" role="tabpanel"
-                            aria-labelledby="Launch-tab">
-                            <div class="row">
-                                {% for food in lunch %}
-                                    {% if food.status == True %}
-                                        <div class="col-sm-6 col-lg-6">
-                                            <div class="single_food_item media">
-                                                <img src="{{food.image.url}}" class="mr-3" alt="..." width="165" height="165" style="object-fit: cover;">
-                                                <div class="media-body align-self-center">
-                                                    <h3>{{food.foodName}}</h3>
-                                                    <p>{{food.description|truncatewords:10}}</p>
-                                                    <h5>{{food.price|intcomma}}<sup>đ</sup></h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    {% endif %}
-                                {% endfor %} 
-                            </div>
-                        </div>
-                        <div class="tab-pane fade single-member" id="Dinner" role="tabpanel"
-                            aria-labelledby="Dinner-tab">
-                            <div class="row">
-                                {% for food in dinner %}
-                                    {% if food.status == True %}
-                                        <div class="col-sm-6 col-lg-6">
-                                            <div class="single_food_item media">
-                                                <img src="{{food.image.url}}" class="mr-3" alt="..." width="165" height="165" style="object-fit: cover;">
-                                                <div class="media-body align-self-center">
-                                                    <h3>{{food.foodName}}</h3>
-                                                    <p>{{food.description|truncatewords:10}}</p>
-                                                    <h5>{{food.price|intcomma}}<sup>đ</sup></h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    {% endif %}
-                                {% endfor %} 
 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- food_menu part end-->
+	<!-- thucdonct -->
+	<div class="thucdonct wow fadeInUp">
+		<div class="tieudect text-xs-center">
+			<a href="" data-monan="*">Tất cả</a> <!-- data- :Đấy là cách lấy dữ liệu trong html(* là lấy hết) -->
+		</div>
+		
+		<div class="noidungct">
+			<div class="container">
+				<div class="row nhieumon">
+					<!-- trên dien thoai thi 12 cot, ipad 2 cot, lớn hon ipad 3 cot, lon nhat 4 cot -->
+					{% for food in foods %}
+						<div class="col-xs-12 col-sm-6 col-md-4  motmon sang">
+							<div class="row">
+								<div class="col-xs-3 col-sm-4">
+									<!-- ben trai la ảnh -->
+									<div class="anhnmon">
+										<div class="tagnew">NEW</div>
+										<img src="{{food.image.url}}" alt=""  width="105" height="105" style="object-fit: cover;">
+									</div>
+								</div>
+								<!-- ben phai la món -->
+								<div class="col-xs-9 col-sm-8 in4monan">
+									<div class="tenmon">
+										<div class="tren">
+											<span class="float-xs-right">{{food.price|intcomma}} VND</span>
+											<b class="ten">{{food.foodName}}</b>
+										</div>
+										<div class="duoi">
+											{{food.description|truncatewords:8}}
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- END row -->
+						</div> 
+					{% endfor %}
+				</div>
+			</div>
+		
+		</div>
+		<!-- END noidungct -->
 
-    <!--::chefs_part start::-->
-    <section class="chefs_part blog_item_section section_padding">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-5">
-                    <div class="section_tittle">
-                        <p>Team Member</p>
-                        <h2>Our Experience Chefs</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                {% for chef in chefs %}
-                    <div class="col-sm-6 col-lg-4">
-                        <div class="single_blog_item">
-                            <div class="single_blog_img">
-                                <img src="{{chef.avatar.url}}" alt="" height="360" width="330" style="object-fit: cover; border-top-left-radius: 9%; border-top-right-radius: 9%;">
-                            </div>
-                            <div class="single_blog_text text-center">
-                                <h3>{{chef.fullName}}</h3>
-                                <p>{{chef.position}}</p>
-                                <div class="social_icon">
-                                    <a href="{{chef.faceBook}}"> <i class="ti-facebook"></i> </a>
-                                    <a href="{{chef.twitter}}"> <i class="ti-twitter-alt"></i> </a>
-                                    <a href="{{chef.instagram}}"> <i class="ti-instagram"></i> </a>
-                                    <a href="{{chef.skype}}"> <i class="ti-skype"></i> </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                {% endfor %}
-            </div>
-        </div>
-    </section>
-    <!--::chefs_part end::-->
+	</div>
+	<!-- END thucdonct -->
 
-    <!--::regervation_part start::-->
-    <section class="regervation_part section_padding" id="reservation">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-5">
-                    <div class="section_tittle">
-                        <p>Reservation</p>
-                        <h2>Book A Table</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="regervation_part_iner">
-                        <form method="POST" action="#">
-                            {% csrf_token %}
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <input type="text" name="customerName" class="form-control" id="inputEmail4" placeholder="Họ và tên *">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <input type="email" name="email" class="form-control" placeholder="Email *">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <input type="number" name="amount" class="form-control" placeholder="Số lượng *">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <input type="tel" name="phoneNumber" class="form-control" id="pnone" placeholder="Số điện thoại *">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <input class="form-control" name="date" type="date" placeholder="Ngày *" />
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <input type="time" name="time" class="form-control" placeholder="Giờ *">
-                                </div>
-                                <div class="form-group col-md-12">
-                                    <textarea class="form-control" name="note" id="Textarea" rows="4" placeholder="Ghi chú *"></textarea>
-                                </div>
-                            </div>
 
-                            <div class="regerv_btn">
-                                <button type="submit" class="button button-contactForm btn_4">Book A Table</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--::regervation_part end::-->
 
-    <!--::review_part start::-->
-    <section class="review_part gray_bg section_padding">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-5">
-                    <div class="section_tittle">
-                        <p>Testimonials</p>
-                        <h2>Customers Feedback</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-11">
-                    <div class="client_review_part owl-carousel">
-                        {% for fb in feedback %}
-                            <div class="client_review_single media">
-                                <div class="client_img align-self-center">
-                                    <img src="{{fb.customer_avatar.url}}" alt="" style="border-radius: 50%; object-fit: cover;">
-                                </div>
-                                <div class="client_review_text media-body">
-                                    <p>{{fb.feedback|safe}}</p>
-                                    <h4>{{fb.customer_name}}</h4>
-                                </div>
-                            </div>
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--::review_part end::-->
+	<div class="slidemonan">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12 wow swing">
+					<h4>Những món ăn đặc biệt của chúng tôi</h4>
+				</div>
+			</div>
 
-    <!--::exclusive_item_part start::-->
-    <section class="blog_item_section blog_section section_padding">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-5">
-                    <div class="section_tittle">
-                        <p>Recent News</p>
-                        <h2>Latest From Blog</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                {% for recentPost in latestPosts %}
+			<div class="row">
+				<div id="slidemonaduoi" data-interval="5000" class="carousel slide" data-ride="carousel"> <!-- data-interval: chỉnh thời gian chuyển sile(mili giây) -->
+					<ol class="carousel-indicators">
+						<li data-target="#slidemonaduoi" data-slide-to="0" class="active"></li>
+						<li data-target="#slidemonaduoi" data-slide-to="1"></li>
+						<li data-target="#slidemonaduoi" data-slide-to="2"></li>
+					</ol>
+					<div class="carousel-inner" role="listbox">
+						<div class="carousel-item active">
+							<div class="row">
+								{% for food in special %}
+									{% if food.status == True %}
+										<div class="sanpham">
+											<img src="{{food.image.url}}" class="anhspslide" alt="" >
+											<div class="tensp">				
+												<div class="gia float-xs-right">{{food.price|intcomma}}</div>
+												<div class="ten">{{food.foodName}}</div>
+											</div>
+											<div class="tencongthuc">
+												{{food.description|truncatewords:4}}
+											</div>
+										</div>
+									{% endif %}
+								{% endfor %} 
+							</div>
+							<!-- END row -->
+						</div>
+						<!-- END 1 slide -->
+					</div>
+					<a class="left trai carousel-control" href="#slidemonaduoi" role="button" data-slide="prev">
+						<span class="icon-prev" aria-hidden="true"></span>
+						<span class="sr-only">Previous</span>
+					</a>
+					<a class="right carousel-control" href="#slidemonaduoi" role="button" data-slide="next">
+						<span class="icon-next" aria-hidden="true"></span>
+						<span class="sr-only">Next</span>
+					</a>
+				</div>
+			</div>
+			<!-- END row -->
+		</div>
+	</div>
+	<!-- END slidemonan -->
+
+
+	<div class="gioithieudaubep">
+		<div class="container">
+			<div class="row">
+				{% for chef in chefs %}
+					<div class="col-sm-6">
+						<img src="{{chef.avatar.url}}" alt="" class="anhdaubep ">
+					</div>
+					
+					<div class="col-sm-6">
+						<div class="thongtin ">
+							<h2 class="fontoswald">{{chef.fullName}}</h2>
+							<span class="Master fontdacing">{{chef.position}}</span>
+							<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis, fugiat sequi enim cupiditate minus ipsam ut amet suscipit voluptas, quasi natus? Consequuntur possimus repellat earum non tempore eaque cumque officia.</p>
+						</div>
+						<!-- END thongtin -->
+						<div class="lienhe " data-wow-delay="0.2s">
+							<a href="{{chef.faceBook}}" class="iconlhdb"><i class="fa fa-facebook"></i></a>
+							<a href="{{chef.skype}}" class="iconlhdb"><i class="fa fa-instagram"></i></a>
+							<a href="{{chef.instagram}}" class="iconlhdb"><i class="fa fa-pinterest-p"></i></a>
+							<a href="{{chef.twitter}}" class="iconlhdb"><i class="fa fa-twitter"></i></a>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		<!-- </div> -->
+		</div>
+	</div>
+	<!-- END gioithieudaubep -->
+
+
+	<div class="sloganhome wow fadeInUp">
+		<div class="container text-xs-center">
+			<div class="row">
+				<div class="col-sm-8 push-sm-2">
+					<h3 class="fontdacing">Enjoy Plesant Time With Friends and Partners</h3>
+					<span class="fontoswald">Relaxing Atmosphere</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- END sloganhome -->
+
+
+	<div class="khoidatban text-xs-center" id="reservations">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-3"></div>
+				<div class="col-sm-6">
+					<div class="thongtindatban">
+						<h2 class="fontroboto">Make A Reservation</h2>
+						<p class="tt fontroboto" >Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit fuga, debitis,  corporis tempora voluptatem laudantium. Autem.</p>
+						<div class="giodb fontroboto">Thứ 2 đến thứ 6 <span class="vang">9:00 - 23:00 </span> Thứ 7 và chủ nhật <span class="vang">10:00 - 22:00 </span> <br/> Note: Nhà hàng đóng cửa vào các ngày lễ</div>
+					<div class="dtdb fontoswald">{{contactInfo.phoneNumber}}</div>
+					</div>
+					<!-- END thongtindatban -->
+				</div>
+				<div class="col-sm-3"></div>
+
+				<form method="POST" action="#">
+					{% csrf_token %}
+					<div class="col-sm-10 push-sm-1">
+						<div class="formdatban">
+							<div class="row">
+								<div class="col-sm-12">
+									<h2 class="booktext text-xs-center fontoswald">- Đặt bàn trực tuyến -</h2>
+								</div>
+
+								<div class="col-sm-4">
+									<div class="form-group">
+										<input type="text" name="customerName" class="form-control" placeholder="Họ và tên*">
+									</div>
+								</div>
+								<div class="col-sm-4">
+									<div class="form-group">
+										<input type="email" name="email" class="form-control" placeholder="Email*">
+									</div>
+								</div>
+								<div class="col-sm-4">
+									<div class="form-group">
+										<input type="number" name="phoneNumber" class="form-control" placeholder="Số điện thoại*">
+									</div>
+								</div>
+								<div class="col-sm-4">
+									<div class="form-group">
+										<input type="date" name="date" class="form-control" placeholder="Ngày*">
+									</div>
+								</div>
+								<div class="col-sm-4">
+									<div class="form-group">
+										<input type="time" name="time" class="form-control" placeholder="Giờ*">
+									</div>
+								</div>
+								<div class="col-sm-4">
+									<div class="form-group">
+										<input type="number" name="amount" class="form-control" placeholder="Số lượng">
+									</div>
+								</div>
+								<div class="col-md-12">
+									<textarea class="form-control" name="note" id="Textarea" rows="4" placeholder="Ghi chú*"></textarea>
+								</div>
+								<div class="col-sm-12 text-xs-center">
+									<button type="submit" class="btn btn-warning  booktable  wow swing" style="margin-top: 10px;" >Đặt bàn</button>
+									{% comment %} <a href="" class="btn btn-warning  booktable  wow swing " data-wow-iteration="2">Đặt bàn ngay</a> {% endcomment %}
+								</div>
+							</div>
+						</div>
+						<!-- END formdatban -->
+					</div>
+				</form>
+			</div>
+		</div>	
+	</div>
+	<!-- END khoidatban -->
+
+
+	<div class="phanhoinguoidung">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-10 push-sm-1 text-xs-center">
+					<div id="phanhoi" class=" carousel slide " data-interval="5000" data-ride="carousel" >
+						<ol class="bacham  carousel-indicators">
+							<li data-target="#phanhoi" data-slide-to="0" class="active"></li>
+							<li data-target="#phanhoi" data-slide-to="1"></li>
+							<li data-target="#phanhoi" data-slide-to="2"></li>
+						</ol>
+						<div class="carousel-inner" role="listbox">
+							<div class="carousel-item active">
+								<i class="fa fa-quote-left"></i>
+								<div class="quote fontroboto">
+									Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt illum, optio. Perspiciatis nesciunt iste dolor possimus ipsa minima pariatur, quod accusantium praesentium minus vitae quas expedita necessitatibus ex iure aut.
+								</div>
+								<i class="fa fa-quote-right"></i>
+								<div class="tennguoi fontdacing">Ngoc Hau</div>
+							</div>
+
+							<div class="carousel-item">
+								<i class="fa fa-quote-left"></i>
+								<div class="quote fontroboto">
+									Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt illum, optio. Perspiciatis nesciunt iste dolor possimus ipsa minima pariatur, quod accusantium
+								</div>
+								<i class="fa fa-quote-right"></i>
+								<div class="tennguoi fontdacing">Phuong Hao</div>
+							</div>
+
+							<div class="carousel-item">
+								<i class="fa fa-quote-left"></i>
+								<div class="quote fontroboto">
+									Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt illum, optio. Perspiciatis nesciunt iste dolor possimus ipsa minima pariatur, quod accusantium 
+								</div>
+								<i class="fa fa-quote-right"></i>
+								<div class="tennguoi fontdacing">Khuc Thuan</div>
+							</div>
+							
+						</div>
+						<!-- <a class="left carousel-control" href="#phanhoi" role="button" data-slide="prev">
+							<span class="icon-prev" aria-hidden="true"></span>
+							<span class="sr-only">Previous</span>
+						</a>
+						<a class="right carousel-control" href="#phanhoi" role="button" data-slide="next">
+							<span class="icon-next" aria-hidden="true"></span>
+							<span class="sr-only">Next</span>
+						</a> -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- END phanhoinguoidung -->
+
+
+	<div class="tintuchome">	
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12 text-xs-center">
+					<div class="tdtintuchome">
+						<span class="ourblog  fontdacing">Our Blog</span>
+						<h2>Bài viết mới nhất</h2>
+					</div>
+				</div>
+				{% for recentPost in latestPosts %}
                     {% if recentPost.status == 0 %}
-                        <div class="col-sm-6 col-lg-4">
-                            <div class="single_blog_item">
-                                <div class="single_blog_img">
-                                    <a href="{% url 'postDetail' post_id=recentPost.id %}">
-                                        <img src="{{recentPost.image.url}}" alt="" height="360" width="330" style="object-fit: cover; border-top-left-radius: 9%;">
-                                    </a>
-                                </div>
-                                <div class="single_blog_text">
-                                    <div class="date">
-                                        <a class="date_item">{{recentPost.created_at| date:"M d, Y"}} </a>
-                                        <a class="date_item"> <span>#</span> Food News </a>
-                                    </div>
-                                    <h3><a href="{% url 'postDetail' post_id=recentPost.id %}">{{recentPost.title|truncatewords:8}}</a></h3>
-                                    <a href="{% url 'postDetail' post_id=recentPost.id %}" class="btn_3">Read More <img src="{% static '' %}img/icon/left_1.svg" alt=""></a>
-                                </div>
-                            </div>
-                        </div>
-                    {% endif %}
+						<div class="col-md-4 col-sm-6 col-xs-12  wow fadeInUp">
+							<a href=""><img src="{{recentPost.image.url}}" alt=""style="width: -webkit-fill-available;" height="210"></a>
+							<a href="" class="tieudetin1 fontoswald">{{recentPost.title|truncatewords:5}}</a>
+							<div class="ngaythang1  fontroboto">{{recentPost.created_at| date:"M d, Y"}} by <span class="vang"> {{recentPost.author}} </span> </div>
+							<p class="fontroboto">Lorem ipsum, dolor sit amet consectetur adipisicing, elit. Qui earum nostrum eius maiores laborum itaque tenetur sunt consectetur ut </p>
+							
+							<div class="docthem">
+								<div class="like float-xs-right">99 like</div>
+								<a href="" class="rm">Read More</a>	
+							</div>
+						</div>
+					{% endif %}
                 {% endfor %}
-                
-            </div>
-        </div>
-    </section>
-    <!--::exclusive_item_part end::-->
 
-    <!-- footer part start-->
-    <footer class="footer-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-3 col-sm-6 col-md-3 col-lg-3">
-                    <div class="single-footer-widget footer_1">
-                        <h4>About Us</h4>
-                        <p>Heaven fruitful doesn't over for these theheaven fruitful doe over days
-                            appear creeping seasons sad behold beari ath of it fly signs bearing
-                            be one blessed after.</p>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-sm-6 col-md-2 col-lg-3">
-                    <div class="single-footer-widget footer_2">
-                        <h4>Important Link</h4>
-                        <div class="contact_info">
-                            <ul>
-                                <li><a href="#">WHMCS-bridge</a></li>
-                                <li><a href="#"> Search Domain</a></li>
-                                <li><a href="#">My Account</a></li>
-                                <li><a href="#">Shopping Cart</a></li>
-                                <li><a href="#"> Our Shop</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-sm-6 col-md-3 col-lg-3">
-                    <div class="single-footer-widget footer_2">
-                        <h4>Contact us</h4>
-                        <div class="contact_info">
-                            <p><span> Address :</span>{{contactInfo.address}} </p>
-                            <p><span> Phone :</span> {{contactInfo.phoneNumber}}</p>
-                            <p><span> Email : </span>{{contactInfo.email}} </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-sm-6 col-md-4 col-lg-3">
-                    <div class="single-footer-widget footer_3">
-                        <h4>Newsletter</h4>
-                        <p>Heaven fruitful doesn't over lesser in days. Appear creeping seas</p>
-                        <form action="#">
-                            <div class="form-group">
-                                <div class="input-group mb-3">
-                                    <input type="text" class="form-control" placeholder='Email Address'
-                                        onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email Address'">
-                                    <div class="input-group-append">
-                                        <button class="btn" type="button"><i class="fas fa-paper-plane"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="copyright_part_text">
-                <div class="row">
-                    <div class="col-lg-8">
-                        <p class="footer-text m-0"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="copyright_social_icon text-right">
-                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="ti-dribbble"></i></a>
-                            <a href="#"><i class="fab fa-behance"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- footer part end-->
+			</div>
+		</div>
+	</div>
+	<!-- END tintuchome -->
 
-    <!-- jquery plugins here-->
-    <!-- jquery -->
-    <script src="{% static '' %}js/jquery-1.12.1.min.js"></script>
-    <!-- popper js -->
-    <script src="{% static '' %}js/popper.min.js"></script>
-    <!-- bootstrap js -->
-    <script src="{% static '' %}js/bootstrap.min.js"></script>
-    <!-- easing js -->
-    <script src="{% static '' %}js/jquery.magnific-popup.js"></script>
-    <!-- swiper js -->
-    <script src="{% static '' %}js/swiper.min.js"></script>
-    <!-- swiper js -->
-    <script src="{% static '' %}js/masonry.pkgd.js"></script>
-    <!-- particles js -->
-    <script src="{% static '' %}js/owl.carousel.min.js"></script>
-    <!-- swiper js -->
-    <script src="{% static '' %}js/slick.min.js"></script>
-    <script src="{% static '' %}js/gijgo.min.js"></script>
-    <script src="{% static '' %}js/jquery.nice-select.min.js"></script>
-    <!-- custom js -->
-    <script src="{% static '' %}js/custom.js"></script>
-</body>
+{% endblock %}
 
-</html>
+

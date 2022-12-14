@@ -49,8 +49,14 @@ INSTALLED_APPS = [
     'blog',
     'menu',
     'chefs',
-    'mptt'
+    'order',
+    'mptt',
+    'compressor',
 ]
+
+# COMPRESS_PRECOMPILERS = (
+#     ('text/x-scss', 'django_libsass.SassCompiler'),
+# )
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

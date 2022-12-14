@@ -1,98 +1,141 @@
 {% extends "base.html" %}
 {% load static %}
-{% block pageName %} About Us {% endblock pageName %}
+{% load humanize %}
+{% block pageName %} Giới thiệu {% endblock pageName %}
 {% block main %}
 
+	<div class="sloganhome1 ">
+		<div class="container text-xs-center wow flipInY" >
+			<div class="row">
+				<div class="col-sm-8 push-sm-2">
+					<h3 class="fontdacing " style="font-size: 35px;">Hand-Crafted Dishes Sourced </h3>
+					<span class="fontoswald" style="font-size: 35px;" >About us</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- END sloganhome -->
 
 
-    <!-- about part start-->
-    <section class="about_part about_bg">
-        <div class="container-fluid">
-            <div class="row align-items-center">
-                <div class="col-sm-4 col-lg-5 offset-lg-1">
-                    <div class="about_img">
-                        <img src="{% static '' %}img/about.png" alt="">
-                    </div>
-                </div>
-                {% for history in ourHistory %}
-                    <div class="col-sm-8 col-lg-4">
-                        <div class="about_text">
-                            <h5>Our History</h5>
-                            <h2>{{history.title}}</h2>
-                            <p>{{history.detail|safe}}</p>
-                            <!-- <a href="#" class="btn_3">Read More <img src="{% static '' %}img/icon/left_2.svg" alt=""></a> -->
-                        </div>
-                    </div>
-                {% endfor %}
-            </div>
-        </div>
-    </section>
-    <!-- about part end-->
-    <!--::review_part start::-->
-    <section class="review_part gray_bg section_padding">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-5">
-                    <div class="section_tittle">
-                        <p>Testimonials</p>
-                        <h2>Customers Feedback</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-11">
-                    <div class="client_review_part owl-carousel">
-                        {% for fb in feedback %}
-                            <div class="client_review_single media">
-                                <div class="client_img align-self-center">
-                                    <img src="{{fb.customer_avatar.url}}" alt="" style="border-radius: 50%; object-fit: cover;">
-                                </div>
-                                <div class="client_review_text media-body">
-                                    <p>{{fb.feedback|safe}}</p>
-                                    <h4>{{fb.customer_name}}</h4>
-                                </div>
-                            </div>
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--::review_part end::-->
-    <!--::chefs_part start::-->
-    <section class="chefs_part blog_item_section section_padding">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-5">
-                    <div class="section_tittle">
-                        <p>Team Member</p>
-                        <h2>Our Experience Chefs</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                {% for chef in chefs %}
-                    <div class="col-sm-6 col-lg-4">
-                        <div class="single_blog_item">
-                            <div class="single_blog_img">
-                                <img src="{{chef.avatar.url}}" alt="" height="360" width="330" style="object-fit: cover; border-top-left-radius: 9%; border-top-right-radius: 9%;">
-                            </div>
-                            <div class="single_blog_text text-center">
-                                <h3>{{chef.fullName}}</h3>
-                                <p>{{chef.position}}</p>
-                                <div class="social_icon">
-                                    <a href="{{chef.faceBook}}"> <i class="ti-facebook"></i> </a>
-                                    <a href="{{chef.twitter}}"> <i class="ti-twitter-alt"></i> </a>
-                                    <a href="{{chef.instagram}}"> <i class="ti-instagram"></i> </a>
-                                    <a href="{{chef.skype}}"> <i class="ti-skype"></i> </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                {% endfor %}
-            </div>
-        </div>
-    </section>
-    <!--::chefs_part end::-->
+	<div class="ttabout">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-5">
+					{% for history in ourHistory %}
+						<div class="khoichuabout  wow fadeInUp">
+							<h2 class="fontdacing vang"> New Dishes </h2>
+							<span class="Discover fontoswald ">Discover Our Restaurant</span>
+							<p>{{history.detail|safe}}</p>
+							<div class="nutrmabout btn btn-warning"> Read More</div>
+						</div>
+					{% endfor %}
+					<!-- END khoichuabout -->
+				</div>
+
+				<div class="col-sm-7 push-sm-1  wow fadeInUp " data-wow-delay="0.5s">
+					<img src="{% static '' %}images/great1.jpg" alt="" width="176" height="369" class="anhttabout">
+					<img src="{% static '' %}images/great2.jpg" alt="" width="176" height="369" class="anhttabout">
+					<img src="{% static '' %}images/great3.jpg" alt="" width="176" height="369" class="anhttabout">
+
+				</div>
+
+
+				<div class="col-sm-5 push-sm-1"></div>
+			</div>
+		</div>
+	</div>
+	<!-- END ttabout -->
+
+
+	<div class="sloganhome2">
+		<div class="container text-xs-center">
+			<div class="row">
+				<div class="col-sm-8 push-sm-2">
+					<h3 class="Healthy fontdacing" style="color: orange;">Healthy Fresh And hot Dishes</h3>
+					<span class="fontroboto">Best Offer From The House Chef</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- END sloganhome -->
+
+
+	<div class="badichvu">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-4 wow fadeInUp  text-xs-center  ">
+					<a href=""><img src="{% static '' %}images/banhmi.png"  class="icondoan" alt="" height="60px"></img></a>
+					<h3>Banh Mi</h3>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa explicabo quasi ad placeat sapiente ab ipsam corporis consectetur molestiabvd2</p>
+					<a href="" class="readmore">Readmore</a>
+				</div>
+
+				<div class="col-sm-4 wow fadeInUp  text-xs-center  ">
+					<a href=""><img src="{% static '' %}images/bogo.png" class="icondoan" alt="" height="60px"></img></a>
+					<h3>Hamburger</h3>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa explicabo quasi ad placeat sapiente ab ipsam corporis consectetur molestiabvd2</p>
+					<a href="" class="readmore">Readmore</a>
+				</div>
+
+				<div class="col-sm-4 wow fadeInUp  text-xs-center  ">
+					<a href=""><img src="{% static '' %}images/fish.png" class="icondoan" alt="" height="60px"></img></a>
+					<h3>Fish</h3>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa explicabo quasi ad placeat sapiente ab ipsam corporis consectetur molestiabvd2</p>
+					<a href="" class="readmore">Readmore</a>
+				</div>
+
+
+			</div>
+		</div>
+	</div>
+	<!-- END badichvu -->
+
+
+	<!-- gioithieudaubep -->
+	<div class="gioithieudaubep">
+		<div class="container">
+			<div class="row">
+				{% for chef in chefs %}
+					<div class="col-sm-6">
+						<img src="{{chef.avatar.url}}" alt="" class="anhdaubep ">
+					</div>
+					
+					<div class="col-sm-6">
+						<div class="thongtin ">
+							<h2 class="fontoswald">{{chef.fullName}}</h2>
+							<span class="Master fontdacing">{{chef.position}}</span>
+							<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis, fugiat sequi enim cupiditate minus ipsam ut amet suscipit voluptas, quasi natus? Consequuntur possimus repellat earum non tempore eaque cumque officia.</p>
+						</div>
+						<!-- END thongtin -->
+						<div class="lienhe " data-wow-delay="0.2s">
+							<a href="{{chef.faceBook}}" class="iconlhdb"><i class="fa fa-facebook"></i></a>
+							<a href="{{chef.skype}}" class="iconlhdb"><i class="fa fa-instagram"></i></a>
+							<a href="{{chef.instagram}}" class="iconlhdb"><i class="fa fa-pinterest-p"></i></a>
+							<a href="{{chef.twitter}}" class="iconlhdb"><i class="fa fa-twitter"></i></a>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		<!-- </div> -->
+		</div>
+	</div>
+	<!-- END gioithieudaubep -->
+
+
+	<div class="contactabout">
+		<div class="container fontroboto">
+			<div class="row">
+				<div class="col-sm-6  wow bounceInUp">
+					<h6>It's better to visit our place once</h6>
+				</div>
+					<div class="col-sm-1 push-sm-5  wow bounceInUp">
+						<div class="nutcontactus btn btn-warning"> Contact us </div>
+					</div>
+				</div>
+				
+				
+		</div>
+	</div>
 
 {% endblock %}
+

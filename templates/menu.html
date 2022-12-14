@@ -1,139 +1,75 @@
 {% extends "base.html" %}
 {% load static %}
 {% load humanize %}
-{% block pageName %} Menu {% endblock %}
+{% block pageName %} Trang chủ {% endblock pageName %}
 {% block main %}
 
 
-    <!--::chefs_part start::-->
-    <!-- food_menu start-->
-    <section class="food_menu gray_bg">
-        <div class="container">
-            <div class="row justify-content-between">
-                <div class="col-lg-5">
-                    <div class="section_tittle">
-                        <p>Popular Menu</p>
-                        <h2>Delicious Food Menu</h2>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="nav nav-tabs food_menu_nav" id="myTab" role="tablist">
-                        <a class="active" id="Special-tab" data-toggle="tab" href="#Special" role="tab"
-                            aria-controls="Special" aria-selected="false">Special <img src="{% static '' %}img/icon/play.svg"
-                                alt="play"></a>
-                        <a id="Breakfast-tab" data-toggle="tab" href="#Breakfast" role="tab" aria-controls="Breakfast"
-                            aria-selected="false">Breakfast <img src="{% static '' %}img/icon/play.svg" alt="play"></a>
-                        <a id="Launch-tab" data-toggle="tab" href="#Launch" role="tab" aria-controls="Launch"
-                            aria-selected="false">Lunch <img src="{% static '' %}img/icon/play.svg" alt="play"></a>
-                        <a id="Dinner-tab" data-toggle="tab" href="#Dinner" role="tab" aria-controls="Dinner"
-                            aria-selected="false">Dinner <img src="{% static '' %}img/icon/play.svg" alt="play"> </a>
-                    </div>
-                </div>
-                <div class="col-lg-12">
-                    <div class="tab-content" id="myTabContent">
-                        <div class="tab-pane fade show active single-member" id="Special" role="tabpanel"
-                            aria-labelledby="Special-tab">
-                            <div class="row">
-                                {% for food in special %}
-                                    {% if food.status == True %}
-                                        <div class="col-sm-6 col-lg-6">
-                                            <div class="single_food_item media">
-                                                <img src="{{food.image.url}}" class="mr-3" alt="..." width="165" height="165" style="object-fit: cover;">
-                                                <div class="media-body align-self-center">
-                                                    <h3>{{food.foodName}}</h3>
-                                                    <p>{{food.description}}</p>
-                                                    <h5>{{food.price|intcomma}}<sup>đ</sup></h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    {% endif %}
-                                {% endfor %} 
-                            </div>
-                        </div>
-                        <div class="tab-pane fade single-member" id="Breakfast" role="tabpanel"
-                            aria-labelledby="Breakfast-tab">
-                            <div class="row">
-                                {% for food in breakfast %}
-                                    {% if food.status == True %}
-                                        <div class="col-sm-6 col-lg-6">
-                                            <div class="single_food_item media">
-                                                <img src="{{food.image.url}}" class="mr-3" alt="..." width="165" height="165" style="object-fit: cover;">
-                                                <div class="media-body align-self-center">
-                                                    <h3>{{food.foodName}}</h3>
-                                                    <p>{{food.description}}</p>
-                                                    <h5>{{food.price|intcomma}}<sup>đ</sup></h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    {% endif %}
-                                {% endfor %} 
-                            </div>
-                        </div>
-                        <div class="tab-pane fade single-member" id="Launch" role="tabpanel"
-                            aria-labelledby="Launch-tab">
-                            <div class="row">
-                                {% for food in lunch %}
-                                    {% if food.status == True %}
-                                        <div class="col-sm-6 col-lg-6">
-                                            <div class="single_food_item media">
-                                                <img src="{{food.image.url}}" class="mr-3" alt="..." width="165" height="165" style="object-fit: cover;">
-                                                <div class="media-body align-self-center">
-                                                    <h3>{{food.foodName}}</h3>
-                                                    <p>{{food.description}}</p>
-                                                    <h5>{{food.price|intcomma}}<sup>đ</sup></h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    {% endif %}
-                                {% endfor %} 
-                            </div>
-                        </div>
-                        <div class="tab-pane fade single-member" id="Dinner" role="tabpanel"
-                            aria-labelledby="Dinner-tab">
-                            <div class="row">
-                                {% for food in dinner %}
-                                    {% if food.status == True %}
-                                        <div class="col-sm-6 col-lg-6">
-                                            <div class="single_food_item media">
-                                                <img src="{{food.image.url}}" class="mr-3" alt="..." width="165" height="165" style="object-fit: cover;">
-                                                <div class="media-body align-self-center">
-                                                    <h3>{{food.foodName}}</h3>
-                                                    <p>{{food.description}}</p>
-                                                    <h5>{{food.price|intcomma}}<sup>đ</sup></h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    {% endif %}
-                                {% endfor %} 
+	<div class="khoimenu" >
+		<div class="tieudekhoimenu text-xs-center">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-8 push-sm-2">
+						<span class="tieudephu">Menu</span>
+						<h3 class="tieudechinh fontoswald">Thực phẩm tươi và lành mạnh có sẵn</h3>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- END tieudekhoimenu -->
+	</div>
+	<!-- END khoimenu -->
 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- food_menu part end-->
-    <!--::chefs_part end::-->
 
-    <!-- intro_video_bg start-->
-    <section class="intro_video_bg">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="intro_video_iner text-center">
-                        <h2>Expect The Best</h2>
-                        <div class="intro_video_icon">
-                            <a id="play-video_1" class="video-play-button popup-youtube"
-                                href="https://www.youtube.com/watch?v=pBFQdxA-apI">
-                                <span class="ti-control-play"></span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- intro_video_bg part start-->
+	<!-- thucdonct -->
+	<div class="thucdonct wow fadeInUp">
+		<div class="tieudect text-xs-center">
+			<a href="" data-monan="*">Tất cả</a> <!-- data- :Đấy là cách lấy dữ liệu trong html(* là lấy hết) -->
+		</div>
+		
+		<div class="noidungct">
+			<div class="container">
+				<div class="row nhieumon">
+					<!-- trên dien thoai thi 12 cot, ipad 2 cot, lớn hon ipad 3 cot, lon nhat 4 cot -->
+					{% for food in foods %}
+						<div class="col-xs-12 col-sm-6 col-md-4  motmon sang">
+							<div class="row">
+								<div class="col-xs-3 col-sm-4">
+									<!-- ben trai la ảnh -->
+									<div class="anhnmon">
+										<div class="tagnew">NEW</div>
+										<img src="{{food.image.url}}" alt=""  width="105" height="105" style="object-fit: cover;">
+									</div>
+								</div>
+								<!-- ben phai la món -->
+								<div class="col-xs-9 col-sm-8 in4monan">
+									<div class="tenmon">
+										<div class="tren">
+											<span class="float-xs-right">{{food.price|intcomma}} VND</span>
+											<b class="ten">{{food.foodName}}</b>
+										</div>
+										<div class="duoi">
+											{{food.description|truncatewords:8}}
+										</div>
+										<input class="input" name="quantity" type="number" value="1" min="1" max="{{ product.amount }}">
+										<button class="btn" type="submit">Thêm vào giỏ hàng</button>
+									</div>
+								</div>
+							</div>
+							
+							<!-- END row -->
+						</div> 
+					{% endfor %}
+				</div>
+			</div>
+		
+		</div>
+		<!-- END noidungct -->
+
+	</div>
+	<!-- END thucdonct -->
+
 
 {% endblock %}
+
+

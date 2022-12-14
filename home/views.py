@@ -3,7 +3,7 @@ from blog.models import blog
 from chefs.models import Chefs
 from aboutUs.models import History, Feedback
 from contact.models import ContactInfo, Reservations
-from menu.models import Special, Breakfast, Lunch, Dinner
+from menu.models import Food
 
 # Create your views here.
 
@@ -26,11 +26,8 @@ def home(request):
     feedback    = Feedback.objects.all().order_by('-id')[0:5]
     contactInfo = ContactInfo.objects.get(pk=1)
 
-    special = Special.objects.all().order_by('-id')[0:6]
-    breakfast = Breakfast.objects.all().order_by('-id')[0:6]
-    lunch = Lunch.objects.all().order_by('-id')[0:6]
-    dinner = Dinner.objects.all().order_by('-id')[0:6]
-    ExclusiveItems = Special.objects.all().order_by('-id')[0:3]
+    foods = Food.objects.all().order_by('-id')
+    ExclusiveItems = Food.objects.all().order_by('-id')[0:3]
     
     return render(
         request=request,
@@ -41,10 +38,7 @@ def home(request):
             'ourHistory': ourHistory,
             'feedback': feedback,
             'contactInfo': contactInfo,
-            'special': special,
-            'breakfast': breakfast,
-            'lunch': lunch,
-            'dinner': dinner,
+            'foods': foods,
             'ExclusiveItems': ExclusiveItems,
         }
     )

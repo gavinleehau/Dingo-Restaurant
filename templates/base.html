@@ -1,194 +1,200 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
 {% load static %}
+<html lang="en"><head>
+	<title> {% block pageName %} {% endblock pageName %} </title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-{% include 'head.html' %}
+	<script type="text/javascript" src="{% static '' %}vendor/bootstrap.js"></script>
+	<script type="text/javascript" src="{% static '' %}vendor/isotope.pkgd.min.js"></script><!-- để tạo hiệu ứng lúc chuyển màn hình-->
+	<script type="text/javascript" src="{% static '' %}vendor/imagesloaded.pkgd.min.js"></script> <!-- để load ảnh nếu ko sẽ bị lỗi-->
+	<script type="text/javascript" src="{% static '' %}1.js"></script>
+	<!-- load bootstrap -->
+	<link rel="stylesheet" href="{% static '' %}vendor/bootstrap.css">
+	<link rel="stylesheet" href="{% static '' %}vendor/font-awesome.css">
+	<link rel="stylesheet" href="{% static '' %}vendor/bootstrap.css">
+	<!-- load font -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap" rel="stylesheet">
+	{% comment %} <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> {% endcomment %}
+ 	<link rel="stylesheet" href="{% static '' %}1.css">
+	
+</head>
+<body >
+	<div class="topheader">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-6">
+					<div class="mangxh float-sm-left text-xs-center text-sm-left">
+						<a href=""><i class="fa fa-facebook"></i></a>
+						<a href=""><i class="fa fa-twitter"></i></a>
+						<a href=""><i class="fa fa-instagram"></i></a>
+						<a href=""><i class="fa fa-cloud"></i></a>
 
-<body>
+					</div>
+					<div class="datban wow pulse">
+						Call for reservation: {{contactInfo.phoneNumber}}
+					</div>
+				</div>
+				<div class="col-sm-6">
+					{% if user.id is not None %}
+						<div class=" openingtop float-sm-right text-sm-left text-xs-center  wow pulse">
+							<a style="color: orange;">Hi, {{user.username}}</a> /
+							<a href="{% url 'logout' %}" style="color: white;">Đăng xuất</a> 
+						</div>
+					{% else %}
+						<div class=" openingtop float-sm-right text-sm-left text-xs-center  wow pulse">
+							<a href="{% url 'login' %}" style="color: orange;">Đăng nhập</a> / 
+							<a href="{% url 'register' %}" style="color: white;">Đăng ký</a>
+						</div>
+					{% endif %}
+				</div>
+			</div>
+			<!-- END ROW -->
+		</div>
+	</div>
+	<!-- END TOP HEADER -->
 
-    <!--::header part start::-->
-    <header class="main_menu">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-12">
-                    <nav class="navbar navbar-expand-lg navbar-light">
-                        <a class="navbar-brand" href="{% url 'home' %}"> <img src="{% static '' %}img/logo.png" alt="logo"> </a>
-                        <button class="navbar-toggler" type="button" data-toggle="collapse"
-                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
 
-                        <div class="collapse navbar-collapse main-menu-item justify-content-end"
-                            id="navbarSupportedContent">
-                            <ul class="navbar-nav">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{% url 'home' %}">Home</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{% url 'about' %}">About</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{% url 'menu' %}">Menu</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{% url 'chefs' %}">Chefs</a>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="dropdown-item" href="{% url 'showPosts' %}">Blog</a>
-                                    <!-- <a class="nav-link dropdown-toggle" href="{% url 'about' %}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Blog
-                                    </a> -->
-                                    <!-- <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="blog.html">Blog</a>
-                                        <a class="dropdown-item" href="single-blog.html">Single blog</a>
-                                        <a class="dropdown-item" href="elements.html">Elements</a>
-                                    </div> -->
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{% url 'contact' %}">Contact</a>
-                                </li>
-                            </ul>
-                        </div>
+	<div class="logovamenu">
+		<nav class="navbar navbar-light fontroboto">
+			<div class="container">
+				<button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#mtren"></button>
+				
+				<div class="collapse navbar-toggleable-xs logo" id="mtren">
+					<a class="navbar-brand text-xs-center" href="index.html"><img src="images/logo.png" alt=""></a>
+					<ul class="nav navbar-nav float-sm-right">
+						<li class="nav-item  {% if request.resolver_match.url_name == 'home' %}active{% endif %}">
+							<a class="nav-link" href="{% url 'home' %}">Trang chủ</a>
+						</li>
+						<li class="nav-item  {% if request.resolver_match.url_name == 'about' %}active{% endif %}">
+							<a class="nav-link" href="{% url 'about' %}">Về chúng tôi</a>
+						</li>
+						<li class="nav-item  {% if request.resolver_match.url_name == 'menu' %}active{% endif %}">
+							<a class="nav-link" href="{% url 'menu' %}">Menu</a>
+						</li> 
+						<li class="nav-item  {% if request.resolver_match.url_name == 'showPosts' %}active{% endif %}">
+							<a class="nav-link" href="{% url 'showPosts' %}">Bài viết</a>
+						</li>
+						<li class="nav-item  {% if request.resolver_match.url_name == 'contact' %}active{% endif %}">
+							<a class="nav-link" href="{% url 'contact' %}">Liên hệ</a>
+						</li>
+						<li class="nav-item ">
+							<a class="nav-link" href="{% url 'order' %}">order</a>
+						</li>
+						<li class="nav-item datbanmenu">
+							<a class="nav-link btn btn-warning wow bounce" data-wow-iteration="2" href="{% url 'contact' %}">Đặt bàn</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!-- end container -->
+		</nav>
+	</div>
+	<!-- end logovamenu -->
 
-                        {% if user.id is not None %}
-                            <div class="menu_btn">
-                                <a href="{% url 'logout' %}" class="single_page_btn d-none d-sm-block">Hi, {{user.username}}</a>
-                            </div>
-                        {% else %}
-                            <ul class="navbar-nav">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{% url 'login' %}">Đăng nhập</a>
-                                </li>
-                            </ul>
-                            <div class="menu_btn">
-                                <a href="{% url 'register' %}" class="single_page_btn d-none d-sm-block">Đăng ký</a>
-                            </div>
-                        {% endif %}
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </header>
-    <!-- Header part end-->
 
-    <!-- breadcrumb start-->
-    <section class="breadcrumb breadcrumb_bg">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="breadcrumb_iner text-center">
-                        <div class="breadcrumb_iner_item">
-                            <h2>{% block pageName %} {% endblock pageName %}</h2>
-                            <!-- <h2>kj;hiuhgiu</h2> -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- breadcrumb start-->
-
-    
     {% block main %}
         
     {% endblock %}
 
 
-    <!-- footer part start-->
-    <footer class="footer-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-3 col-sm-6 col-md-4">
-                    <div class="single-footer-widget footer_1">
-                        <h4>About Us</h4>
-                        <p>Heaven fruitful doesn't over for these theheaven fruitful doe over days
-                            appear creeping seasons sad behold beari ath of it fly signs bearing
-                            be one blessed after.</p>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-sm-6 col-md-4">
-                    <div class="single-footer-widget footer_2">
-                        <h4>Important Link</h4>
-                        <div class="contact_info">
-                            <ul>
-                                <li><a href="#">WHMCS-bridge</a></li>
-                                <li><a href="#"> Search Domain</a></li>
-                                <li><a href="#">My Account</a></li>
-                                <li><a href="#">Shopping Cart</a></li>
-                                <li><a href="#"> Our Shop</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-sm-6 col-md-4">
-                    <div class="single-footer-widget footer_2">
-                        <h4>Contact us</h4>
-                        <div class="contact_info">
-                            <p><span> Address :</span>{{contactInfo.address}} </p>
-                            <p><span> Phone :</span> {{contactInfo.phoneNumber}}</p>
-                            <p><span> Email : </span>{{contactInfo.email}} </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-sm-8 col-md-6">
-                    <div class="single-footer-widget footer_3">
-                        <h4>Newsletter</h4>
-                        <p>Heaven fruitful doesn't over lesser in days. Appear creeping seas</p>
-                        <form action="#">
-                            <div class="form-group">
-                                <div class="input-group mb-3">
-                                    <input type="text" class="form-control" placeholder='Email Address'
-                                        onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email Address'">
-                                    <div class="input-group-append">
-                                        <button class="btn" type="button"><i class="fas fa-paper-plane"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="copyright_part_text">
-                <div class="row">
-                    <div class="col-lg-8">
-                        <p class="footer-text m-0"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="copyright_social_icon text-right">
-                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="ti-dribbble"></i></a>
-                            <a href="#"><i class="fab fa-behance"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- footer part end-->
 
-    <script src="{% static '' %}js/jquery-1.12.1.min.js"></script>
-    <!-- popper js -->
-    <script src="{% static '' %}js/popper.min.js"></script>
-    <!-- bootstrap js -->
-    <script src="{% static '' %}js/bootstrap.min.js"></script>
-    <!-- easing js -->
-    <script src="{% static '' %}js/jquery.magnific-popup.js"></script>
-    <!-- swiper js -->
-    <script src="{% static '' %}js/swiper.min.js"></script>
-    <!-- swiper js -->
-    <script src="{% static '' %}js/masonry.pkgd.js"></script>
-    <!-- particles js -->
-    <script src="{% static '' %}js/owl.carousel.min.js"></script>
-    <!-- swiper js -->
-    <script src="{% static '' %}js/slick.min.js"></script>
-    <script src="{% static '' %}js/gijgo.min.js"></script>
-    <script src="{% static '' %}js/jquery.nice-select.min.js"></script>
-    <!-- custom js -->
-    <script src="{% static '' %}js/custom.js"></script>
+    <div class="footertop">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-3 cotf1">
+					<a href=""><img src="{% static '' %}images/logo.png" alt="logof"></a>
+					<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis nisi eum quae omnis vitae quisquam vel eos dicta error, inventore.</p>
+					<div class="lienheft">
+						<i class="fa fa-map-marker"></i>
+						<span class="textlhft fontroboto">Địa chỉ: {{contactInfo.address}}</span>
+					</div>
+					<div class="lienheft">
+						<i class="fa fa-phone"></i>
+						<span class="textlhft fontroboto">Số phone: {{contactInfo.phoneNumber}}</span>
+					</div>
+					<div class="lienheft">
+						<i class="fa fa-envelope-o"></i>
+						<span class="textlhft fontroboto">Email: {{contactInfo.email}}</span>
+					</div>    
+				</div>
+				<!-- END cotf1 -->
+				
+				<div class="col-sm-2 push-sm-1 cotf2">
+					<h2 class="tdft">Userfull Link 1</h2>
+					<ul>
+						<li><a href="{% url 'home' %}">Trang chủ</a></li>
+						<li><a href="{% url 'about' %}">Về chúng tôi</a></li>
+						<li><a href="#">Menu</a></li>
+						<li><a href="{% url 'showPosts' %}">Bài viết</a></li>
+						<li><a href="{% url 'contact' %}">Liên hệ</a></li>
+					</ul>
+				</div>
+				<!-- END cotf2 -->
+				
+				<div class="col-sm-3 cotf3">
+					{% comment %} <h2 class="tdft">Lastest Blog Post</h2>
+					<div class="container">
+						<div class="row"> 
+
+							<div class="col-sm-5 cotf3trai  wow pulse">
+								<img src="images/chef.jpg" class="anhcotf3 " alt="" width="60" height="60">
+							</div>
+							<div class="col-sm-7 cotf3phai  wow pulse" style="padding: 0;">
+								<h6>Ngoc Hau</h6>
+								<span style="font-size: 12.5px;">1st December 2021</span>
+							</div>
+							
+							<div class="col-sm-5 cotf3trai  wow pulse" data-wow-delay="0.5s">
+								<img src="images/chef.jpg" class="anhcotf3 " alt="" width="60" height="60">
+							</div>
+							<div class="col-sm-7 cotf3phai  wow pulse" data-wow-delay="0.5s" style="padding: 0;">
+								<h6>Phuong Hao</h6>
+								<span style="font-size: 12.5px;">1st December 2021</span>
+							</div>
+
+							<div class="col-sm-5 cotf3trai  wow pulse" data-wow-delay="1s">
+								<img src="images/chef.jpg" class="anhcotf3 " alt="" width="60" height="60">
+							</div>
+							<div class="col-sm-7 cotf3phai  wow pulse" data-wow-delay="1s" style="padding: 0;">
+								<h6>Khuc Thuan</h6>
+								<span style="font-size: 12.5px;">1st December 2021</span>
+							</div>
+						</div>
+					</div> {% endcomment %}
+				</div>
+				<!-- END cotf3 -->
+				
+				<div class="col-sm-3 cotf4 wow pulse" data-wow-iteration="2">
+					<h2 class="tdft">Opening Hours</h2>
+					<div class="opening1">
+						<div class="phai float-xs-right">9:00 am - 23:00 pm</div>
+						<div class="trai">Mon - Fri</div>
+					</div>
+					<div class="opening1">
+						<div class="phai float-xs-right">10:00 am - 22:00 pm</div>
+						<div class="trai">Saturday</div>
+					</div>
+					<div class="opening1">
+						<div class="phai float-xs-right">9:00 am - 23:00 pm</div>
+						<div class="trai">Sunday</div>
+					</div>
+					<p>Note: Nhà hàng đóng cửa vào các ngày lễ</p>
+				</div>
+				<!-- END cotf4 -->
+
+			</div>
+		</div>
+	</div>
+	<!-- END footertop -->
+	<div class="footerbottom text-xs-center fontroboto  wow fadeInUp">
+		Copyright © 2021 | Web Designed by Le Ngoc Hau
+	</div>
+
 </body>
-
 </html>

@@ -7,13 +7,15 @@ from django.utils.translation import gettext_lazy as _
 import datetime
 from datetime import datetime
 
+from user.models import UserProfile
+
 
 # Create your models here.
 
 class author(models.Model):
     author_name = models.CharField('Tên tác giả', default='Dingo Restaurant', max_length=100)
-    link        = models.CharField('Link nhà hàng', max_length=10000) # This part can be chosen 1 of the two, if you don't need too much detail, just need the restaurant link
-    avatar      = models.ImageField('Ảnh đại diện', null=True)
+    link = models.CharField('Link nhà hàng', max_length=10000) # This part can be chosen 1 of the two, if you don't need too much detail, just need the restaurant link
+    avatar = models.ImageField('Ảnh đại diện', null=True)
     # description = RichTextUploadingField('Nội dung')
 
     class Meta:
@@ -77,4 +79,16 @@ class InstagramFeeds(models.Model):
 
     def __str__(self):
         return self.note
+
+class Comment(models.Model):
+    post = models.ForeignKey(blog, on_delete=models.CASCADE, verbose_name=('Bài viết'))
+    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name=('user'))
+    comment = models.TextField(max_length=500, blank=True, verbose_name=('Đánh giá'))
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name=('Ngày bình luận'))
+    updated_at = models.DateTimeField(auto_now_add=True, verbose_name=('Ngày cập nhật bình luận'))
+    
+    class Meta:
+        verbose_name = ("Đánh giá bài viết")
+        verbose_name_plural = ("Đánh giả bài viết")
+
 

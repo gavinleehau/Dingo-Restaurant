@@ -1,272 +1,144 @@
 {% extends "base.html" %}
 {% load static %}
-{% block pageName %} Single Blog {% endblock pageName %}
+{% load humanize %}
+{% block pageName %} Tin tức {% endblock pageName %}
 {% block main %}
 
 
-    <!--================Blog Area =================-->
-    <section class="blog_area single-post-area section_padding">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 posts-list">
-                    <div class="single-post">
-                        <div class="feature-img">
-                            <img class="img-fluid" src="{{post_detail.image.url}}" alt="" />
-                        </div>
-                        <div class="blog_details">
-                            <h2>{{post_detail.title|safe}}</h2>
-                            <ul class="blog-info-link mt-3 mb-4">
-                                <li>
-                                    <a><i class="far fa-user"></i> <span style="color: #ff6426; font-weight: bold;"> {{post_detail.author}} </span></a>
-                                </li>
-                                <li>
-                                    <a ><i class="far fa-clock"></i> {{post_detail.created_at|date:"M d, Y"}}</a>
-                                </li>
-                            </ul>
-                            <p class="excert">
-                                {{post_detail.content|safe}}
-                            </p>
-                        </div>
-                    </div>
-                    <div class="navigation-top">
-                        <div class="d-sm-flex justify-content-between text-center">
-                            <p class="like-info">
-                                <span class="align-middle"><i class="fa fa-heart" aria-hidden="true" style="color: #e52639;"></i></span>Dingo cảm ơn bạn đã đọc..
-                            </p>
-                            <div class="col-sm-4 text-center my-2 my-sm-0">
-                                <!-- <p class="comment-count"><span class="align-middle"><i class="far fa-comment"></i></span> 06 Comments</p> -->
-                            </div>
-                            <ul class="social-icons">
-                                <li>
-                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="fab fa-dribbble"></i></a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="fab fa-behance"></i></a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="navigation-area">
-                            <div class="row">
-                                {% if prevpost %}
-                                    {% if prevpost.status == 0 %}
-                                        <div class="col-lg-6 col-md-6 col-12 nav-left flex-row d-flex justify-content-start align-items-center">
-                                            <div class="thumb">
-                                                <a href="{{prevpost.id}}">
-                                                    <img class="img-fluid" src="{{prevpost.image.url}}" alt="" width="60" height="60" />
-                                                </a>
-                                            </div>
-                                            <div class="arrow">
-                                                <a href="{{prevpost.id}}">
-                                                    <span class="lnr text-white ti-arrow-left"></span>
-                                                </a>
-                                            </div>
-                                            <div class="detials">
-                                                <p>Prev Post</p>
-                                                <a href="{{prevpost.id}}">
-                                                    <h4>{{prevpost.title|truncatewords:4}}</h4>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    {% endif %}
-                                {% else %}
-                                    <div class="col-lg-6 col-md-6 col-12 nav-left flex-row d-flex justify-content-start align-items-center"></div>
-                                {% endif %}
+	<div class="tintuchome wow flipInY">	
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12 text-xs-center">
+					<div class="tdtintuchome">
+						<span class="ourblog  fontdacing">Our Blog</span>
+						<h2>Bài viết mới nhất</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- END tintuchome -->
 
-                                {% if nextpost %}
-                                    <div class="col-lg-6 col-md-6 col-12 nav-right flex-row d-flex justify-content-end align-items-center">
-                                        <div class="detials">
-                                            <p>Next Post</p>
-                                            <a href="{{nextpost.id}}">
-                                                <h4>{{nextpost.title|truncatewords:4}}</h4>
-                                            </a>
-                                        </div>
-                                        <div class="arrow">
-                                            <a href="{{nextpost.id}}">
-                                                <span class="lnr text-white ti-arrow-right"></span>
-                                            </a>
-                                        </div>
-                                        <div class="thumb">
-                                            <a href="{{nextpost.id}}">
-                                                <img class="img-fluid" src="{{nextpost.image.url}}" alt="" width="60" height="60" />
-                                            </a>
-                                        </div>
-                                    </div>
-                                {% endif %}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="blog-author">
-                        <div class="media align-items-center">
-                            <img src="{{post_detail.author.avatar.url}}" alt="" style="object-fit: cover; object-position: 50% 50%;" />
-                            <div class="media-body">
-                                <a>
-                                    <h4>{{post_detail.author}}</h4>
-                                </a>
-                                <p>{{post_detail.note}}</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
-                <div class="col-lg-4">
-                    <div class="blog_right_sidebar">
-                        <aside class="single_sidebar_widget search_widget">
-                            <form action="#">
-                                <div class="form-group">
-                                    <div class="input-group mb-3">
-                                        <input type="text" class="form-control" placeholder="Search Keyword" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search Keyword'" />
-                                        <div class="input-group-append">
-                                            <button class="btn" type="button"><i class="ti-search"></i></button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <button class="button rounded-0 primary-bg text-white w-100 btn_4" type="submit">Search</button>
-                            </form>
-                        </aside>
-                        <!-- <aside class="single_sidebar_widget post_category_widget">
-                            <h4 class="widget_title">Category</h4>
-                            <ul class="list cat-list">
-                                <li>
-                                    <a href="#" class="d-flex">
-                                        <p>Resaurant food</p>
-                                        <p>(37)</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="d-flex">
-                                        <p>Travel news</p>
-                                        <p>(10)</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="d-flex">
-                                        <p>Modern technology</p>
-                                        <p>(03)</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="d-flex">
-                                        <p>Product</p>
-                                        <p>(11)</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="d-flex">
-                                        <p>Inspiration</p>
-                                        <p>(21)</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="d-flex">
-                                        <p>Health Care</p>
-                                        <p>(21)</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </aside> -->
-                        
-                        <aside class="single_sidebar_widget popular_post_widget">
-                            <h3 class="widget_title">Recent Post</h3>
-                            {% for recentPost in recentPosts %}
-                                {% if recentPost.status == 0 %}
-                                    <div class="media post_item">
-                                        <a href=""><img src="{{recentPost.image.url}}" alt="post" height="80" width="80" style="object-fit: cover;" ></a>
-                                        <div class="media-body">
-                                            <a href="{% url 'postDetail' post_id=recentPost.id %}">
-                                                <h3>{{recentPost.title| truncatewords:4}}</h3>
-                                            </a>
-                                            <p>{{recentPost.created_at| timesince}}</p>
-                                        </div>
-                                    </div>
-                                {% endif %}
-                            {% endfor %}
-                        </aside>
-                        
-                        
-                        <!-- <aside class="single_sidebar_widget tag_cloud_widget">
-                            <h4 class="widget_title">Tag Clouds</h4>
-                            <ul class="list">
-                                <li>
-                                    <a href="#">project</a>
-                                </li>
-                                <li>
-                                    <a href="#">love</a>
-                                </li>
-                                <li>
-                                    <a href="#">technology</a>
-                                </li>
-                                <li>
-                                    <a href="#">travel</a>
-                                </li>
-                                <li>
-                                    <a href="#">restaurant</a>
-                                </li>
-                                <li>
-                                    <a href="#">life style</a>
-                                </li>
-                                <li>
-                                    <a href="#">design</a>
-                                </li>
-                                <li>
-                                    <a href="#">illustration</a>
-                                </li>
-                            </ul>
-                        </aside>
-                        <aside class="single_sidebar_widget instagram_feeds">
-                            <h4 class="widget_title">Instagram Feeds</h4>
-                            <ul class="instagram_row flex-wrap">
-                                <li>
-                                    <a href="#">
-                                        <img class="img-fluid" src="{% static '' %}img/post/post_5.png" alt="" />
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <img class="img-fluid" src="{% static '' %}img/post/post_6.png" alt="" />
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <img class="img-fluid" src="{% static '' %}img/post/post_7.png" alt="" />
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <img class="img-fluid" src="{% static '' %}img/post/post_8.png" alt="" />
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <img class="img-fluid" src="{% static '' %}img/post/post_9.png" alt="" />
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <img class="img-fluid" src="{% static '' %}img/post/post_10.png" alt="" />
-                                    </a>
-                                </li>
-                            </ul>
-                        </aside>
-                        <aside class="single_sidebar_widget newsletter_widget">
-                            <h4 class="widget_title">Newsletter</h4>
-                            <form action="#">
-                                <div class="form-group">
-                                    <input type="email" class="form-control" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email'" placeholder="Enter email" required />
-                                </div>
-                                <button class="button rounded-0 primary-bg text-white w-100 btn_4" type="submit">Subscribe</button>
-                            </form>
-                        </aside> -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--================Blog Area end =================-->
 
+	<section class="noidungtin">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-9 ndttren">	
+                    <div class="noidung  wow fadeInUp">
+                        <a><img src="{{post_detail.image.url}}" alt="" width= 100% height="417"></a>
+                        <a class="tieudetin1 fontoswald">{{post_detail.title}}</a>
+                        <div class="ngaythang1  fontroboto">
+                            <i class="fa fa-clock-o" aria-hidden="true"></i> {{post_detail.created_at|date:"d-m-Y"}} by <span class="vang">  {{post_detail.author}}</span> 
+                        </div>
+                        <p class="fontroboto">{{post_detail.content|safe}}</p>
+                        
+                        <div class="docthem">
+                            <div class="like float-xs-right">{{cmt_count}} bình luận</div>
+                            <div class="like float-xs-left">Cảm ơn bạn đã đọc</div>
+                        </div>
+                    </div>
+
+					
+					{% comment %} comment area {% endcomment %}
+					<div class="toprated  wow fadeInRight">
+						<h4 class="fontoswald chutoprated">Bình luận</h4>
+						<div class="container">
+							{% for cmt in comments %}
+									<div class="row khoitoprated">
+										<div class="col-sm-1 anhtoprated">
+											<img src="https://images.pexels.com/photos/127160/pexels-photo-127160.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"  alt="" width="80" height="80" style="object-fit: cover;">
+										</div>
+										<div class="col-sm-11 push-sm-1" style="margin-left: -30px;">
+											{% if cmt.user.is_superuser == True %}
+												<h6>Admin nè</h6>
+											{% else %}
+												<h6>{{cmt.user.username}}</h6>
+											{% endif %} 
+											<span>{{cmt.comment}}</span> <br>
+											<span style="font-size: 12px; font-style: italic;">{{cmt.created_at}}</span>
+										</div>
+									</div>
+								{% comment %} </div> {% endcomment %}
+								
+							{% endfor %} 
+						</div>
+					</div>
+					
+
+					<div class="comment-form">
+						<div class="container">
+							<h4>Bình luận</h4>
+							<form class="form-contact comment_form" method="POST" action="{% url 'comment' post_detail.id %}" id="commentForm">
+								{% csrf_token %}
+								<div class="col-12">
+									<div class="form-group">
+										<textarea class="form-control w-100" name="commentDetails" 
+											id="comment" cols="30" rows="9" placeholder="Write Comment"></textarea>
+									</div>
+								</div>
+								{% if user.is_authenticated %}
+									<div class="row justify-content-center">
+										<input type="submit" value="Đánh giá" class="btn btn-primary" style="background-color: #f0ad4e; color: black; border-color: #f0ad4e">
+									</div>
+								{% else %}
+									<p>Bạn phải đăng nhập để đánh giá sản phẩm <span><a href="{% url 'login' %}">Đăng nhập</a></span></p>
+								{% endif %}
+							</form>
+						</div>
+					</div>
+					
+				</div>
+				
+
+				<div class="col-sm-3">
+					<form method="GET">
+						<div class="search">
+							<div class="form-group thanhsearch">
+								<input type="text" class="form-control" placeholder="Search" name="q">
+							</div>
+							<button type="submit" class="iconsearch"><i class="fa fa-search"></i></button>
+							<button class="button w-100 btn_4" style="background-color: #f0ad4e;border: none; color: white;" type="submit">Search</button>
+						</div>
+					</form>
+					
+					<div class="categories  wow fadeInUp">
+						<h2 class="fontoswald">Danh mục</h2>
+						<div class="khoicategories fontroboto">
+							<ul>
+								<li><a href="">Healthy Food</a></li>
+								<li><a href="">Super Burger</a></li>
+								<li><a href="">Home Special</a></li>
+								<li><a href="">Desserts</a></li>
+							</ul>
+						</div>
+					</div>
+					<!-- END categories -->
+					
+					<div class="toprated  wow fadeInRight">
+						<h4 class="fontoswald chutoprated">Top Rated</h4>
+						<div class="container">
+							{% for food in special %}
+								{% if food.status == True %}
+									<div class="row khoitoprated">
+										<div class="col-sm-4 anhtoprated">
+											<img src="{{food.image.url}}"  alt="" width="80" height="80" style="object-fit: cover;">
+										</div>
+										<div class="col-sm-7 push-sm-1 khoigiamgia">
+											<h6>{{food.foodName|truncatewords:2}}</h6>
+											<span>{{food.price|intcomma}}</span>
+											{% comment %} <span class="float-xs-right gialucdau">100.000</span> {% endcomment %}
+										</div>
+									</div>
+								{% endif %}
+							{% endfor %} 
+						</div>
+					</div>
+					{% comment %} END toprate {% endcomment %}
+				</div>
+
+			</div>
+		</div>
+	</section>
+	<!-- END noidungtin -->
 {% endblock %}
+

@@ -5,6 +5,7 @@ from django.db import models
 from django.contrib.auth.models import User, AbstractBaseUser
 from django.utils.translation import gettext_lazy as _
 from django.utils.safestring import mark_safe
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 # Create your models here.
 
@@ -20,6 +21,9 @@ class UserProfile(models.Model):
 
     def __str__(self):
         return self.name
+    
+    def has_perm(self, perm, obj=None):
+        return self.is_superuser
 
 
 class Staff(models.Model):

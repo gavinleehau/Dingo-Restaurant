@@ -1,0 +1,1138 @@
+
+
+.fontroboto{
+    font-family: 'Roboto', sans-serif;
+}
+.fontoswald{
+    font-family: 'Oswald', sans-serif;
+}
+.fontdacing{
+    font-family: 'Dancing Script', cursive;
+}
+
+.datban{
+    border-left: 1px solid #ddd;
+    float: left;
+    margin-left: 17px;
+    padding-left: 25px;
+    font-size: 13px;
+    color: #ddd;
+}
+.topheader .col-sm-1{
+    padding: 0;
+}
+.openingtop {
+    border-right: 1px solid #ddd;
+    padding-right: 17px;
+}
+.mangxh a:nth-child(1) {
+    padding-left: 0;
+}
+.mangxh a{
+    color: #dddddd;
+    font-size: 12px;
+    padding: 0 13px;
+
+}
+
+.topheader{
+    background: #222222;
+    height: 40px;
+    color: white;
+    line-height: 40px;
+}
+.mangxh a:hover i.fa{
+    color: orange;
+}
+
+.ENG{
+    color: #ddd;
+    padding: 0;
+    border-right: 1px solid #ddd;
+    font-size: 14px;
+}
+
+
+/*CSS tren DIEN THOAI*/
+@media (max-width: 576px){
+    .topheader{
+        height: auto;
+    }
+    .topheader .col-sm-1{
+        padding: 0 15px;
+    }
+    .datban, .ENG, .bell  {
+        border: none;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        text-align: center;
+        border-top: 1px solid #333333;
+    }
+
+}
+
+
+
+/*CSS cho logovamenu*/
+a.nav-link {
+    font-size: 14px;
+    color: #777777;
+    margin-top: 43px;
+    padding: 0 15px;
+}
+.logo img{
+    margin-top: 30px;
+}
+.datbanmenu a.nav-link.btn.btn-warning{
+    font-size: 15px;
+    font-weight: 10px;
+    width: 150px;
+    height: 49px;
+    color: black;
+    line-height: 18px;
+    margin-top: 32px;
+    padding: 15px;
+    /*transform: translateY(10px);  Có thể dùng cái này để chỉnh cho lên xuống*/ 
+}
+
+@media (max-width: 576px){
+    *{}
+    .nav a.nav-link{
+        text-align: center;
+        padding: 12px;
+        margin: 0;
+        border-bottom: 1px solid #dcdbdb;
+    }
+    .datbanmenu a.nav-link.btn.btn-warning {
+        width: 100%;
+        margin-top: 11px;
+    }
+}
+/*END CSS cho logovamenu*/
+
+
+/*CSS cho slide*/
+.chu{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
+.slide .slidetren{
+    /*min-height: Chiều cao tối thiểu tính từ mép trên cùng của thành phần, đơn vị có thể là px, em, %, ...*/
+    min-height: 650px; 
+    background-position: center;
+    /*background-size: cover;
+    position: relative;
+    z-index: -1;*/
+
+}
+.slide .slidetren:before{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1920px;
+    height: 650px;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}
+
+.chu p {
+    color: white;
+    color: #c0c0c0;
+}
+
+.chu h2{
+    color: white;
+    font-size: 50px;
+    line-height: 24px;
+    margin-bottom: 30px;
+}
+@media (max-width: 576px){
+    *{}
+    .chu h2 {
+    font-size: 28px;
+    line-height: 29px;
+    }
+    .slide .slidetren{
+        min-height: 450px; 
+    }
+}
+
+
+/*CSS cho badichvu*/
+.badichvu {
+    padding-top: 100px;
+}
+.badichvu h3 {
+    font-size: 20px;
+    text-align: center;
+}
+.badichvu p {
+    text-align: center;
+}
+a.readmore{
+    color: #a1b1bc;
+    font-size: 14px;
+    text-align: center;
+    display: block;
+    padding-bottom: 50px;
+    text-decoration: none;
+}
+a.readmore:hover{
+    color: orange;
+}
+@media (max-width: 576px){
+    a.readmore {
+        margin-bottom: 20px;
+        margin-top: -14px;
+    }
+    .badichvu{
+        margin-top: -40px;
+    }
+}
+/*END CSS cho badichvu*/
+
+
+/*CSS cho khoimenu*/
+.khoimenu{
+    background: rgba(0, 0, 0, 0.5) url('images/gtf.jpg');
+    min-height: 650px;
+    background-blend-mode: darken;
+    background-position: center;
+    color: white;
+    padding-top: 150px;
+}
+span.tieudephu{
+    font-family: 'Dancing Script', cursive;
+    font-size: 60px;
+    color: orange;
+}
+h3.tieudechinh{
+    font-size: 50px;
+}
+
+@media (max-width: 576px){
+    span.tieudephu{
+        font-size: 32px;
+    }
+    .khoimenu{
+        background: rgba(0, 0, 0, 0.5) url('images/vnf.jpg');
+        min-height: 400px;
+        background-position: center;
+    }
+    h3.tieudechinh{
+        font-size: 20px;
+    }
+}
+
+
+*{margin: 0; padding: 0;} 
+
+/*CSS cho thucdonct*/
+.thucdonct .tieudect{
+    height: 40px;
+    line-height: 40px;
+    /*background: gray;*/
+    color: white;
+    margin-top: -57px;
+}
+.motmon{
+    height: 130px;
+}
+.anhmon{
+    position: relative;
+    width: 100%;
+}
+.tagnew {
+    position: absolute;
+    top: 0;
+    background: #feb518;
+    font-size: 8px;
+    padding: 2px 7px;
+    margin-left: -7px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+/*[class*= abc] dùng để xài cho những cái class có chữ bắt đầu giống nhau*/
+
+.noidungct{
+    margin-top: 120px;
+}
+
+.tenmon .tren{
+    font-size: 15px;
+    font-family: 'Oswald', sans-serif;
+    border-bottom: 2px dotted black;
+}
+
+b.ten{
+    background: white;
+    display: inline-block;
+    transform: translateY(7px);
+    padding-right: 7px;
+}
+
+.tenmon .tren span{
+    background: white;
+    display: inline-block;
+    transform: translateY(7px);
+    padding-left: 4px;
+}
+.tenmon .duoi{
+    padding-top: 4px;
+}
+
+.tieudect a{
+    color: white;
+    padding: 0 18px;
+    text-decoration: none;
+
+}
+.tieudect a:hover{
+    color: orange;
+    text-decoration: none;
+}
+.tieudect a:focus{
+    color: orange;
+    text-decoration: none;
+}
+/*End css thucdonct*/
+
+
+
+/*CSS cho slidemonanduoi*/
+.sanpham{
+    width: 20%;
+    float: left;
+    box-sizing: border-box;
+    padding-left: 20px;
+    padding-right: 15px;
+}
+img.anhspslide{
+    width: 100%;
+    /*height: 85%;*/
+}
+.slidemonan{
+    /*background: gray;*/
+    background: rgba(0, 0, 0, 0.5) url('images/slduoi.png');
+    background-blend-mode: darken;
+    color: white;
+    padding-bottom: 50px;
+}
+.slidemonan h4 {
+    padding-top: 20px;
+    padding-bottom: 16px;
+    font-size: 24px;
+    margin-left: -15px;
+    padding-left: 5px;
+}
+
+.slidemonan a.right.carousel-control, a.trai.carousel-control {
+    background: rgba(0, 0, 0, 0.29);
+    position: absolute;
+    width: 34px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    top: -50px;
+}
+.slidemonan a.trai.carousel-control {
+    right: 40px;
+    left: auto;
+}
+.slidemonan a.right.carousel-control:hover, a.trai.carousel-control:hover{
+    background-color: orange;
+}
+.slidemonan .carousel-indicators{
+    display: none;
+}
+@media (max-width: 576px){
+    .sanpham{
+        width: 50%;
+        padding-bottom: 20px;
+    }
+    .motmon .in4monan{
+        padding: 0 40px;
+    }
+    .noidungct .row .row [class*=col-]{
+        padding-left: none;
+        padding-right: none;
+    }
+}
+/*END css cho slidemonanduoi*/
+
+
+
+
+
+/*CSS cho gioithieudaubep*/
+.thongtin{
+    padding-top: 200px;
+}
+.gioithieudaubep{
+    padding: 50px 0;
+    background-color: #fafafa;
+    min-height: 600px;
+}
+.anhdaubep {
+    width: 500px;
+    height: 600px;
+    padding-right: 77px;
+    padding-bottom: -50px;
+    margin-top: 10px;
+    margin-bottom: -44px;
+    /* transform: translateY(18px); */
+}
+.Master {
+    color: orange;
+    font-size: 29px;
+    transform: translateY(-11px);
+    display: block;
+}
+.lienhe a.fa{
+    text-decoration: none;
+    padding: 0 5px;
+    margin-top: 15px;
+    font-size: 21px;
+}
+/*.lienhe a.fa:hover{
+    color: orange;
+}*/
+
+.lienhe .iconlhdb {
+    background: #4c4848;
+    color: white;
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    text-align: center;
+    line-height: 2;
+    border-radius: 3px;
+    margin-right: 4px;
+}
+.lienhe .iconlhdb:hover{
+    color: orange;
+    background-color: #e0e0e0;
+}
+@media (max-width: 576px){
+    img.anhdaubep {
+        width: 300px;
+        height: 300px;
+        margin-bottom: 32px;
+    }
+    .lienhe {
+        text-align: center;
+    }
+    .thongtin {
+        margin-top: -200px;
+    }
+}
+/*END CSS cho gioithieudaubep*/
+
+
+
+/*CSS cho sloganhome*/
+.sloganhome {
+    padding: 230px 0;
+    background: #3e3e3e;
+    color: white;
+    
+}
+.sloganhome h3.fontdacing{
+    color: #fdc96b;
+    font-size: 40px;
+    line-height: 50px;
+}
+.sloganhome span.fontoswald{
+    /*color: white;*/
+    font-size: 35px;
+}
+.sloganhome h3.fontdacing:hover{
+    color: orange;
+}
+/*END CSS cho sloganhome*/
+
+
+
+/*CSS cho khoidatban*/
+.khoidatban{
+    padding-top: 100px;
+    padding-bottom: 50px;
+}
+.thongtindatban .tt{
+    font-size: 15px;
+    line-height: 26px;
+    color: #777;
+    padding-top: 37px;
+    padding-bottom: 37px;
+}
+.thongtindatban{
+    border-bottom: 1px solid #d2d2d2;
+    padding-bottom: 61px;
+    margin-bottom: 55px;
+}
+.giodb{
+    padding-bottom: 20px;
+}
+
+.vang{
+    color: orange;
+}
+.dtdb{
+    font-size: 25px;
+    font-weight: bold;
+
+}
+.formdatban .booktext{
+    padding-bottom: 55px;
+    font-size: 25px;
+    /*color: orange;*/
+}
+.formdatban .booktable{
+    border-radius: 0;
+    height: 20px;
+    height: 50px;
+    line-height: 30px;
+    color: black;
+}
+.formdatban .booktable:hover{
+    color: white;
+    background-color: orange;
+}
+/*END CSS cho khoidatban*/
+
+
+
+/*CSS cho phanhoinguoidung */
+.quote{
+    font-size: 18px;
+    color: white;
+
+}
+.quote:before{
+    content: ' "';
+}
+.quote:after{
+    content: ' "';
+}
+
+.tennguoi{
+    font-size: 63px;
+    font-weight: bold;
+    color: orange;
+}
+.tennguoi:before{
+    content: "-";
+}
+.tennguoi:after{
+    content: "-";
+}
+
+.phanhoinguoidung{
+    background-color: #3e3e3e;;
+    padding: 90px 0;
+    color: white;
+}
+
+.phanhoinguoidung i.fa.fa-quote-left{
+    font-size: 35px;
+    margin-bottom: 60px;
+}
+.phanhoinguoidung i.fa.fa-quote-right{
+    font-size: 35px;
+    margin-top: 60px;
+}
+
+.phanhoinguoidung .bacham{
+    margin-bottom: -47px;
+}
+/*END CSS cho phanhoinguoidung*/
+
+
+
+
+/*CSS cho tintuchome*/
+.tintuchome{
+    padding: 120px 0;
+}
+
+.tdtintuchome{
+    padding-bottom: 20px;
+}
+.ourblog{
+    font-size: 45px;
+    color: #f69f00;
+}
+
+a.tieudetin1 {
+    color: black;
+    padding: 20px 0 4px 0;
+    text-decoration: none;
+    font-size: 22px;
+    display: block;
+}
+a.tieudetin1.fontoswald:hover{
+    color: orange;
+}
+
+.ngaythang1{
+    padding-bottom: 17px;
+}
+
+.docthem {
+    border-top: 1px solid #b2b2b2;
+    margin-top: 35px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.docthem .rm{
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+}
+.docthem .rm:hover{
+    color: orange;
+}
+/*END CSS cho tintuchome*/
+
+
+
+/*CSS cho footertop*/
+.footertop{
+    background-color: #151515;
+    color: #888;
+    line-height: 24px;
+    font-size: 14px;
+    font-size: 14px;
+    padding-top: 110px;
+    padding-bottom: 110px;
+}
+
+.cotf1 p{
+    padding-top: 15px;
+}
+.lienheft {
+    padding-bottom: 10px;
+    color: #cac9c9;
+}
+.lienheft i.fa{
+    padding-right: 10px;
+}
+
+.lienheft:hover i {
+    color: orange;
+}
+.lienheft:hover span{
+    color: white;
+}
+    /*END css cho cotf1*/
+
+h2.tdft {
+    font-size: 14px;
+    color: #ccc;
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 20px;
+    margin-top: 30px;
+}
+.cotf1{
+    padding-right: 30px;
+}
+h2.tdft:after {
+    content: "";
+    display: block;
+    width: 32px;
+    height: 1px;
+    margin-top: 5px;
+    background: orange;
+    /*transform: translateX(140px);*/
+}
+
+.cotf2 ul li, .cotf3 ul li {
+    list-style: none;
+}
+.cotf2 ul li a:hover, .cotf3 ul li a:hover {
+    list-style: none;
+    text-decoration: none;
+    color: white;
+}
+.cotf2 ul li a, .cotf3 ul li a{
+    font-size: 14px;
+    line-height: 28px;
+    color: #888;
+    /*text-decoration: none;*/
+    line-height: 30px;
+}
+.cotf3{
+    padding-left: 70px;
+
+}
+
+.cotf3phai{
+    margin-left: -10px;
+    margin-top: 5px;
+    line-height: 10px;
+}
+img.anhcotf3 {
+    border-radius: 50%;
+    margin-left: -15px;
+    border: 1px solid #747474;
+    margin-bottom: 25px;
+}
+
+@media (max-width: 576px){
+    .cotf3 {
+        padding-left: 15px;
+        padding-bottom: 30px;
+        text-align: center;
+    }
+    .cotf3phai {
+    margin-left: -10px;
+    margin-top: -20px;
+    line-height: 10px;
+    margin-bottom: 30px;
+    }
+    .cotf3 h2.tdft:after {
+    content: "";
+    display: block;
+    width: 32px;
+    height: 1px;
+    margin-top: 5px;
+    background: orange;
+     transform: translateX(120px); 
+    }
+}
+
+        /*END CSS cho cotf2 cotf3*/
+
+
+.opening1 {
+    border-bottom: 1px dotted;
+    height: 28px;
+    margin-top: 14px;
+}
+.opening1 .phai {
+    transform: translateY(7px);
+    display: block;
+    background: #151515;
+    padding-left: 6px;
+}
+.opening1 .trai{
+    float: left;
+    transform: translateY(7px);
+    display: block;
+    background: #151515;
+    padding-right: 6px;
+}
+.cotf4 p{
+    padding-top: 10px;
+    color: #a8a8a8;
+}
+/*END CSS cho footertop*/
+
+
+
+/*CSS cho footerbottom*/
+.footerbottom{
+    line-height: 90px;
+    height: 90px;
+    color: #999;
+    background-color: #111111;
+}
+
+@media (max-width: 576px){
+    .footerbottom{
+        font-size: 12.5px;
+    }
+}
+/*END CSS footerbottom*/
+
+
+
+
+
+/************************** CSS cho about **************************/
+.sloganhome1{
+    background: rgba(0, 0, 0, 0.5) url(images/bannerab.jpg);
+    background-blend-mode: darken;
+    min-height: 400px;
+    color: white;
+    padding: 200px 0;
+    color: #fdc96b;
+    font-size: 30px;
+}
+
+.ttabout{
+    padding: 100px 0;
+}
+.Discover{
+    font-size: 20px;
+    font-weight: bold;
+    display: block;
+    height: 41px;
+    margin-top: -10px;
+}
+.khoichuabout p{
+    font-size: 15px;
+    padding-top: 9px;
+}
+.nutrmabout {
+    padding: 12px 30px;
+    font-size: 17px;
+    border-radius: 0;
+    color: black;
+    font-weight: 500;
+
+}
+.nutrmabout:hover {
+    color: white;
+}
+@media (max-width: 576px){
+    img.anhttabout {
+        width: 110px;
+        height: 189px;
+        margin-top: 30px;
+    }
+}
+/*END CSS cho ttabout*/
+
+
+/*CSS cho sloganhome2*/
+.sloganhome2{
+    padding: 230px 0;
+    background: rgba(0, 0, 0, 0.5) url(images/london.jpg);
+    background-blend-mode: darken;
+    min-height: 600px;
+    color: #fdc96b;
+    line-height: 50px;
+}
+.Healthy{
+    font-size: 50px;
+}
+.Healthy:hover{
+    color: orange;
+}
+
+
+.icondoan{
+    margin-bottom: 50px;
+
+}
+/*END CSS cho sloganhome2*/
+
+
+/*CSS cho contactabout*/
+.contactabout{
+    background: grey;
+    color: white;
+    min-height: 50px;
+    height: 180px;
+    line-height: 190px;
+}
+.contactabout h6{
+    line-height: 190px;
+    font-size: 30px;
+}
+.nutcontactus{
+    padding: 12px 30px;
+    font-size: 17px;
+    border-radius: 0;
+    color: black;
+    font-weight: 500;
+}
+
+
+@media (max-width: 576px){
+    .nutcontactus {
+        margin-top: -317px;
+    }
+    .contactabout h6 {
+    font-size: 21px;
+    margin-top: -25px;
+    }
+}
+/*END CSS cho contactabout*/
+
+    
+
+/************************** CSS cho blog **************************/
+.iconsearch{
+    position: absolute;
+    background: none;
+    border: none;
+    top: 0;
+    right: 25px;
+    transform: translateY(6px);
+    display: block;
+}
+
+/*.iconsearch{
+    position: absolute;
+    top: 7px;
+    right: 12px;
+    background: none;
+    border: none;
+
+}*/
+.ndttren{
+    padding-right: 56px;
+}
+.khoicategories{
+    margin-left: 20px;
+    line-height: 37px;
+    border-bottom: 1px solid #a5a5a5;
+}
+
+@media (max-width: 576px){
+    .noidung a img{
+        height: 200px;
+    }
+}
+.khoicategories ul li:hover a{
+    color: #4f4f4f ;
+}
+.khoicategories ul, .khoicategories a{
+    color: #c2c3c5;
+}
+
+.chutoprated{
+    padding: 20px 0;
+    font-weight: bold;
+}
+.anhtoprated{
+    padding-left: 0;
+}
+.gialucdau{
+    text-decoration: line-through;
+}
+.khoitoprated{
+    padding-bottom: 20px;
+}
+/*END CSS khoitoprated*/
+
+
+.phantrang{
+    padding-bottom: 30px;
+    margin-top: -20px;
+}
+
+nav.phantrang ul{
+    list-style: none;
+    display: inline-block;
+}
+nav.phantrang{
+    text-align: center;
+    padding-top: 40px;
+}
+nav.phantrang ul li{
+    display: inline-block;
+}
+
+nav.phantrang ul li a{
+    color: #333;
+    display: inline-block;
+    text-decoration: none;
+    border: 1px solid #c4c4c4;
+    font-size: 14px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 20px;
+}
+nav.phantrang ul li a:hover{
+    color: white;
+    background-color: #feb518;
+    border-color: #feb518;
+}
+
+nav.phantrang ul li a.trang1{
+    border-color: #feb518;
+    background-color: #feb518;
+    color: white;
+}
+
+nav.phantrang ul li.Previous a, nav.phantrang ul li.next a{
+    width: 90px;
+}
+
+@media (max-width: 576px){
+    .phantrang {
+    padding-left: 11px;
+    }
+    nav.phantrang ul li a {
+    color: #333;
+    display: inline-block;
+    text-decoration: none;
+    border: 1px solid #c4c4c4;
+    font-size: 14px;
+    width: 21px;
+    height: 40px;
+    line-height: 36px;
+    border-radius: 20px;
+    /* padding-left: 20px; */
+    }
+    .phantrang {
+    margin-top: -40px;
+    margin-bottom: 20px;
+    transform: translateX(19px);
+    }
+    .khoigiamgia{
+        margin-left: 74px;
+        margin-top: -94px;
+    }
+    .gialucdau{
+        /*text-decoration: line-through;*/
+        transform: translateX(-125px);
+    }
+    /*.noidung{
+        transform: translateX(23px);
+        display: block;
+    }*/
+    .tintuchome {
+    padding: 55px 0;
+    }
+}
+
+/************************** END CSS cho blog **************************/
+
+
+
+            /************************** CSS cho contact **************************/
+
+.khoiform {
+    margin-top: 30px;
+}
+.formtext, .mota {
+    margin-bottom: 25px;
+    border-radius: 0;
+}
+.mota{
+    height: 150px;
+    margin-top: -8px;
+}
+.nutsendct {
+    background-color: #414141;
+    font-size: 15px;
+    padding: 15px;
+    font-weight: bold;
+    border-color: #414141;
+    border-radius: 0;
+}
+.nutsendct:hover{
+    color: black;
+    background-color: orange;
+    border-color: orange;
+}
+
+
+/* comment */
+/* line 1404, E:/169 Dingo Restaurant/169 Dingo Restaurant/169_Dingo_Restautent_html/sass/_blog.scss */
+.comment-form {
+    border-top: 1px solid #eee;
+    padding-top: 45px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+  }
+  
+  /* line 1412, E:/169 Dingo Restaurant/169 Dingo Restaurant/169_Dingo_Restautent_html/sass/_blog.scss */
+  .comment-form .form-group {
+    margin-bottom: 30px;
+  }
+  
+  /* line 1416, E:/169 Dingo Restaurant/169 Dingo Restaurant/169_Dingo_Restautent_html/sass/_blog.scss */
+  .comment-form h4 {
+    margin-bottom: 40px;
+    font-size: 18px;
+    line-height: 22px;
+  }
+  
+  /* line 1424, E:/169 Dingo Restaurant/169 Dingo Restaurant/169_Dingo_Restautent_html/sass/_blog.scss */
+  .comment-form .name {
+    padding-left: 0px;
+  }
+  
+  @media (max-width: 767px) {
+    /* line 1424, E:/169 Dingo Restaurant/169 Dingo Restaurant/169_Dingo_Restautent_html/sass/_blog.scss */
+    .comment-form .name {
+      padding-right: 0px;
+      margin-bottom: 1rem;
+    }
+  }
+  
+  /* line 1433, E:/169 Dingo Restaurant/169 Dingo Restaurant/169_Dingo_Restautent_html/sass/_blog.scss */
+  .comment-form .email {
+    padding-right: 0px;
+  }
+  
+  @media (max-width: 991px) {
+    /* line 1433, E:/169 Dingo Restaurant/169 Dingo Restaurant/169_Dingo_Restautent_html/sass/_blog.scss */
+    .comment-form .email {
+      padding-left: 0px;
+    }
+  }
+  
+  /* line 1441, E:/169 Dingo Restaurant/169 Dingo Restaurant/169_Dingo_Restautent_html/sass/_blog.scss */
+  .comment-form .form-control {
+    border: 1px solid #f0e9ff;
+    border-radius: 5px;
+    height: 48px;
+    padding-left: 18px;
+    font-size: 13px;
+    background: transparent;
+  }
+  
+  /* line 1449, E:/169 Dingo Restaurant/169 Dingo Restaurant/169_Dingo_Restautent_html/sass/_blog.scss */
+  .comment-form .form-control:focus {
+    outline: 0;
+    box-shadow: none;
+  }
+  
+  /* line 1454, E:/169 Dingo Restaurant/169 Dingo Restaurant/169_Dingo_Restautent_html/sass/_blog.scss */
+  .comment-form .form-control::placeholder {
+    font-weight: 300;
+    color: #999999;
+  }
+  
+  /* line 1459, E:/169 Dingo Restaurant/169 Dingo Restaurant/169_Dingo_Restautent_html/sass/_blog.scss */
+  .comment-form .form-control::placeholder {
+    color: #777777;
+  }
+  
+  /* line 1464, E:/169 Dingo Restaurant/169 Dingo Restaurant/169_Dingo_Restautent_html/sass/_blog.scss */
+  .comment-form textarea {
+    padding-top: 18px;
+    border-radius: 12px;
+    height: 100% !important;
+  }
+  
+  /* line 1470, E:/169 Dingo Restaurant/169 Dingo Restaurant/169_Dingo_Restautent_html/sass/_blog.scss */
+  .comment-form ::-webkit-input-placeholder {
+    /* Chrome/Opera/Safari */
+    font-size: 13px;
+    color: #777;
+  }
+  
+  /* line 1476, E:/169 Dingo Restaurant/169 Dingo Restaurant/169_Dingo_Restautent_html/sass/_blog.scss */
+  .comment-form ::-moz-placeholder {
+    /* Firefox 19+ */
+    font-size: 13px;
+    color: #777;
+  }
+  
+  /* line 1482, E:/169 Dingo Restaurant/169 Dingo Restaurant/169_Dingo_Restautent_html/sass/_blog.scss */
+  .comment-form :-ms-input-placeholder {
+    /* IE 10+ */
+    font-size: 13px;
+    color: #777;
+  }
+  
+  /* line 1488, E:/169 Dingo Restaurant/169 Dingo Restaurant/169_Dingo_Restautent_html/sass/_blog.scss */
+  .comment-form :-moz-placeholder {
+    /* Firefox 18- */
+    font-size: 13px;
+    color: #777;
+  }
