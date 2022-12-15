@@ -3,11 +3,28 @@ from django.core.paginator import Paginator
 from django.shortcuts import get_object_or_404
 from django.db.models import Q
 
-from .models import InstagramFeeds, author, blog, author, InstagramFeeds, Comment
+from .models import author, Category, blog, author,Comment
 from contact.models import ContactInfo
 from menu.models import Food
 
 # Create your views here.
+
+def category_products(request,id,slug):
+    category = Category.objects.all()
+    blogs=blog.objects.filter(category_id=id)
+    foods = Food.objects.all().order_by('-id')[0:4]
+    contactInfo = ContactInfo.objects.get(pk=1)
+
+    return render(
+        request=request,
+        template_name='category_blog.html',
+        context={
+            'blogs': blogs, 
+            'category': category,
+            'foods': foods,
+            'contactInfo': contactInfo,
+        }
+    )
 
 def showPosts(request):
     if 'q' in request.GET:
@@ -19,27 +36,28 @@ def showPosts(request):
     new_paginator = Paginator(Posts, per_page = 5) #number of blogs per page
     page_number = request.GET.get('page')
     page = new_paginator.get_page(page_number)
+    category = Category.objects.all()
 
     recentPosts = blog.objects.all().order_by('-id')[0:4]
-    igFeeds 	= InstagramFeeds.objects.all()
     contactInfo = ContactInfo.objects.get(pk=1)
-    special = Special.objects.all().order_by('-id')[0:3]
+    foods = Food.objects.all().order_by('-id')[0:4]
 
     return render(
         request=request,
         template_name = "blog.html",
         context={
             'page': page,
+            'category': category,
             'recentPosts': recentPosts,
-            'igFeeds': igFeeds,
             'contactInfo': contactInfo,
-            'special': special,
+            'foods': foods,
         }
     )
 
 
 def postDetail(request, post_id):
     post_detail = blog.objects.get(id=post_id)
+    category = Category.objects.all()
     recentPosts = blog.objects.all().order_by('-id')[0:4]
     foods = Food.objects.all().order_by('-id')[0:5]
     comments = Comment.objects.filter(post=post_detail).order_by('-id')
@@ -58,7 +76,8 @@ def postDetail(request, post_id):
             'prevpost': prevpost,
             'foods': foods,
             'comments': comments,
-            'cmt_count': cmt_count
+            'cmt_count': cmt_count,
+            'category': category,
         }
     )
     

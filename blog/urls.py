@@ -5,6 +5,7 @@ from . import views
 urlpatterns = [
 	path('', views.showPosts, name='showPosts'),
 	re_path(r"^postDetail/(?P<post_id>[0-9]+)$", views.postDetail, name="postDetail"),
- 	path('comment/<int:post_id>', views.addComment, name='comment')
+ 	path('comment/<int:post_id>', views.addComment, name='comment'),
+	path('category/<int:id>/<slug:slug>', views.category_products, name='category_products'),
 	# path('postDetail/<int:post_id>', views.postDetail, name='postDetail'),
 ]

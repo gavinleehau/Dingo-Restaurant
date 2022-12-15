@@ -29,11 +29,10 @@ class RestaurantInfo(models.Model):
 class History(models.Model):
     title  = models.TextField('Tiêu đề', null=True)
     detail = RichTextUploadingField('Nội dung')
-    image  = models.ImageField('Ảnh bài viết', null=True)
 
     class Meta:
-        verbose_name = _("Lịch sử nhà hàng")
-        verbose_name_plural = _("Lịch sử nhà hàng")
+        verbose_name = _("Giới thiệu nhà hàng")
+        verbose_name_plural = _("Giới thiệu nhà hàng")
 
     def __str__(self):
         return self.title

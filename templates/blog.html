@@ -24,21 +24,26 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-9 ndttren">	
-				{% for post in page.object_list %}
-                    {% if post.status == 0 %}
-						<div class="noidung  wow fadeInUp">
-							<a href="{% url 'postDetail' post_id=post.id %}"><img src="{{post.image.url}}" alt="" width= 100% height="417"></a>
-							<a href="{% url 'postDetail' post_id=post.id %}" class="tieudetin1 fontoswald">{{post.title}}</a>
-							<div class="ngaythang1  fontroboto">{{post.created_at|date:"d-m-Y"}} by <span class="vang"> {{post.author}}</span> </div>
-							<p class="fontroboto">Lorem ipsum, dolor sit amet consectetur adipisicing, elit. Qui earum nostrum eius maiores laborum itaque tenetur sunt consectetur ut </p>
-							
-							<div class="docthem">
-								<div class="like float-xs-right">99 like</div>
-								<a href="{% url 'postDetail' post_id=post.id %}" class="rm">Read More</a>	
+					{% for post in page.object_list %}
+						{% if post.status == 0 %}
+							<div class="noidung  wow fadeInUp">
+								<a href="{% url 'postDetail' post_id=post.id %}"><img src="{{post.image.url}}" alt="" width= 100% height="417"></a>
+								<a href="{% url 'postDetail' post_id=post.id %}" class="tieudetin1 fontoswald">{{post.title}} </a>
+								{% load mptt_tags %}
+								{% if category %}
+									<div class="ngaythang1  fontroboto">{{post.created_at|date:"d-m-Y"}} 
+										<span class="vang"> #{{post.category}}</span> 
+									</div>
+								{% endif %}
+								<p class="fontroboto">{{post.content|safe|truncatewords:30}}</p>
+								
+								<div class="docthem">
+									<!-- <div class="like float-xs-right">99 like</div> -->
+									<a href="{% url 'postDetail' post_id=post.id %}" class="rm">Read More</a>	
+								</div>
 							</div>
-						</div>
-					{% endif %}
-                {% endfor %}
+						{% endif %}
+					{% endfor %}
 					<div class="khoiphantrang">
 						<div class="container">
 							<div class="row">
@@ -103,10 +108,12 @@
 						<h2 class="fontoswald">Danh mục</h2>
 						<div class="khoicategories fontroboto">
 							<ul>
-								<li><a href="">Healthy Food</a></li>
-								<li><a href="">Super Burger</a></li>
-								<li><a href="">Home Special</a></li>
-								<li><a href="">Desserts</a></li>
+							{% load mptt_tags %}
+							{% recursetree category %}
+								<li>
+									<a href="/category/{{ node.id }}/{{node.slug}}">{{ node.title }}</a>
+								</li>
+							{% endrecursetree %}
 							</ul>
 						</div>
 					</div>
@@ -115,15 +122,15 @@
 					<div class="toprated  wow fadeInRight">
 						<h4 class="fontoswald chutoprated">Top Rated</h4>
 						<div class="container">
-							{% for food in special %}
+							{% for food in foods %}
 								{% if food.status == True %}
 									<div class="row khoitoprated">
 										<div class="col-sm-4 anhtoprated">
 											<img src="{{food.image.url}}"  alt="" width="80" height="80" style="object-fit: cover;">
 										</div>
-										<div class="col-sm-7 push-sm-1 khoigiamgia">
-											<h6>{{food.foodName|truncatewords:2}}</h6>
-											<span>{{food.price|intcomma}}</span>
+										<div class="col-sm-7 push-sm-1 khoigiamgia" style="margin-left: -28px;">
+											<h6>{{food.foodName|truncatewords:3}}</h6>
+											<span>{{food.price|intcomma}} VND</span>
 											{% comment %} <span class="float-xs-right gialucdau">100.000</span> {% endcomment %}
 										</div>
 									</div>

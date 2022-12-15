@@ -1,186 +1,303 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-</head>
-<body>
-  <section class="h-100 h-custom" style="background-color: #ffc107;">
-    <div class="container py-5 h-100">
-      <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col-12">
-          <div class="card card-registration card-registration-2" style="border-radius: 15px;">
-            <div class="card-body p-0">
-              <div class="row g-0">
-                <div class="col-lg-8">
-                  <div class="p-5">
-                    <div class="d-flex justify-content-between align-items-center mb-5">
-                      <h1 class="fw-bold mb-0 text-black">Shopping Cart</h1>
-                      <h6 class="mb-0 text-muted">3 items</h6>
-                    </div>
-                    <hr class="my-4">
-  
-                    <div class="row mb-4 d-flex justify-content-between align-items-center">
-                      <div class="col-md-2 col-lg-2 col-xl-2">
-                        <img
-                          src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img5.webp"
-                          class="img-fluid rounded-3" alt="Cotton T-shirt">
-                      </div>
-                      <div class="col-md-3 col-lg-3 col-xl-3">
-                        <h6 class="text-muted">Shirt</h6>
-                        <h6 class="text-black mb-0">Cotton T-shirt</h6>
-                      </div>
-                      <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
-                        <button class="btn btn-link px-2"
-                          onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
-                          <i class="fas fa-minus"></i>
-                        </button>
-  
-                        <input id="form1" min="0" name="quantity" value="1" type="number"
-                          class="form-control form-control-sm" />
-  
-                        <button class="btn btn-link px-2"
-                          onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
-                          <i class="fas fa-plus"></i>
-                        </button>
-                      </div>
-                      <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                        <h6 class="mb-0">€ 44.00</h6>
-                      </div>
-                      <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                        <a href="#!" class="text-muted"><i class="fas fa-times"></i></a>
-                      </div>
-                    </div>
-  
-                    <hr class="my-4">
-  
-                    <div class="row mb-4 d-flex justify-content-between align-items-center">
-                      <div class="col-md-2 col-lg-2 col-xl-2">
-                        <img
-                          src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img6.webp"
-                          class="img-fluid rounded-3" alt="Cotton T-shirt">
-                      </div>
-                      <div class="col-md-3 col-lg-3 col-xl-3">
-                        <h6 class="text-muted">Shirt</h6>
-                        <h6 class="text-black mb-0">Cotton T-shirt</h6>
-                      </div>
-                      <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
-                        <button class="btn btn-link px-2"
-                          onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
-                          <i class="fas fa-minus"></i>
-                        </button>
-  
-                        <input id="form1" min="0" name="quantity" value="1" type="number"
-                          class="form-control form-control-sm" />
-  
-                        <button class="btn btn-link px-2"
-                          onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
-                          <i class="fas fa-plus"></i>
-                        </button>
-                      </div>
-                      <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                        <h6 class="mb-0">€ 44.00</h6>
-                      </div>
-                      <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                        <a href="#!" class="text-muted"><i class="fas fa-times"></i></a>
-                      </div>
-                    </div>
-  
-                    <hr class="my-4">
-  
-                    <div class="row mb-4 d-flex justify-content-between align-items-center">
-                      <div class="col-md-2 col-lg-2 col-xl-2">
-                        <img
-                          src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img7.webp"
-                          class="img-fluid rounded-3" alt="Cotton T-shirt">
-                      </div>
-                      <div class="col-md-3 col-lg-3 col-xl-3">
-                        <h6 class="text-muted">Shirt</h6>
-                        <h6 class="text-black mb-0">Cotton T-shirt</h6>
-                      </div>
-                      <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
-                        <button class="btn btn-link px-2"
-                          onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
-                          <i class="fas fa-minus"></i>
-                        </button>
-  
-                        <input id="form1" min="0" name="quantity" value="1" type="number"
-                          class="form-control form-control-sm" />
-  
-                        <button class="btn btn-link px-2"
-                          onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
-                          <i class="fas fa-plus"></i>
-                        </button>
-                      </div>
-                      <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                        <h6 class="mb-0">€ 44.00</h6>
-                      </div>
-                      <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                        <a href="#!" class="text-muted"><i class="fas fa-times"></i></a>
-                      </div>
-                    </div>
-  
-                    <hr class="my-4">
-  
-                    <div class="pt-5">
-                      <h6 class="mb-0"><a href="#!" class="text-body"><i
-                            class="fas fa-long-arrow-alt-left me-2"></i>Back to shop</a></h6>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-4 bg-grey">
-                  <div class="p-5">
-                    <h3 class="fw-bold mb-5 mt-2 pt-1">Summary</h3>
-                    <hr class="my-4">
-  
-                    <div class="d-flex justify-content-between mb-4">
-                      <h5 class="text-uppercase">items 3</h5>
-                      <h5>€ 132.00</h5>
-                    </div>
-  
-                    <h5 class="text-uppercase mb-3">Shipping</h5>
-  
-                    <div class="mb-4 pb-2">
-                      <select class="select">
-                        <option value="1">Standard-Delivery- €5.00</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                        <option value="4">Four</option>
-                      </select>
-                    </div>
-  
-                    <h5 class="text-uppercase mb-3">Give code</h5>
-  
-                    <div class="mb-5">
-                      <div class="form-outline">
-                        <input type="text" id="form3Examplea2" class="form-control form-control-lg" />
-                        <label class="form-label" for="form3Examplea2">Enter your code</label>
-                      </div>
-                    </div>
-  
-                    <hr class="my-4">
-  
-                    <div class="d-flex justify-content-between mb-5">
-                      <h5 class="text-uppercase">Total price</h5>
-                      <h5>€ 137.00</h5>
-                    </div>
-  
-                    <button type="button" class="btn btn-dark btn-block btn-lg"
-                      data-mdb-ripple-color="dark">Register</button>
-  
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+{% extends "base.html" %}
+{% load static %}
+{% load humanize %}
+{% block pageName %} Tin tức {% endblock pageName %}
+{% block main %}
 
-  
-</body>
-</html>
+
+	<div class="tintuchome wow flipInY">	
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12 text-xs-center">
+					<div class="tdtintuchome">
+						<span class="ourblog  fontdacing">Giỏ hàng</span>
+						{% comment %} <h2>Bài viết mới nhất</h2> {% endcomment %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- END tintuchome -->
+
+
+	<style>
+        /*
+        I wanted to go with a mobile first approach, but it actually lead to more verbose CSS in this case, so I've gone web first. Can't always force things...
+        Side note: I know that this style of nesting in SASS doesn't result in the most performance efficient CSS code... but on the OCD/organizational side, I like it. So for CodePen purposes, CSS selector performance be damned.
+        */
+        /* Global settings */
+        /* Global "table" column settings */
+        .product-image {
+            float: left;
+            width: 20%;
+        }
+        .product-details {
+            float: left;
+            width: 37%;
+        }
+        .product-price {
+            float: left;
+            width: 12%;
+        }
+        .product-quantity {
+            float: left;
+            width: 10%;
+        }
+        .product-removal {
+            float: left;
+            width: 9%;
+        }
+        .product-line-price {
+            float: left;
+            width: 12%;
+            text-align: right;
+        }
+        /* This is used as the traditional .clearfix class */
+        .group:before,
+        .shopping-cart:before,
+        .column-labels:before,
+        .product:before,
+        .totals-item:before,
+        .group:after,
+        .shopping-cart:after,
+        .column-labels:after,
+        .product:after,
+        .totals-item:after {
+            content: "";
+            display: table;
+        }
+        .group:after,
+        .shopping-cart:after,
+        .column-labels:after,
+        .product:after,
+        .totals-item:after {
+            clear: both;
+        }
+        .group,
+        .shopping-cart,
+        .column-labels,
+        .product,
+        .totals-item {
+            zoom: 1;
+        }
+        /* Apply clearfix in a few places */
+        /* Apply dollar signs */
+        /*.product .product-price:before, .product .product-line-price:before, .totals-value:before {
+        content: '$';
+        }*/
+        /* Body/Header stuff */
+        body {
+            padding: 0px 30px 30px 20px;
+            font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-weight: 100;
+        }
+        h1 {
+            font-weight: 100;
+        }
+        label {
+            color: #aaa;
+        }
+        .shopping-cart {
+            margin-top: -45px;
+        }
+        /* Column headers */
+        .column-labels label {
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        .column-labels .product-image,
+        .column-labels .product-details,
+        .column-labels .product-removal {
+            text-indent: -9999px;
+        }
+        /* Product entries */
+        .product {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        .product .product-image {
+            text-align: center;
+        }
+        .product .product-image img {
+            width: 100px;
+        }
+        .product .product-details .product-title {
+            margin-right: 20px;
+            font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium";
+        }
+        .product .product-details .product-description {
+            margin: 5px 20px 5px 0;
+            line-height: 1.4em;
+        }
+        .product .product-quantity input {
+            width: 40px;
+        }
+        .product .remove-product {
+            border: 0;
+            padding: 4px 8px;
+            background-color: #c66;
+            color: #fff;
+            font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium";
+            font-size: 12px;
+            border-radius: 3px;
+        }
+        .product .remove-product:hover {
+            background-color: #a44;
+        }
+        /* Totals section */
+        .totals .totals-item {
+            float: right;
+            clear: both;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .totals .totals-item label {
+            float: left;
+            clear: both;
+            width: 79%;
+            text-align: right;
+        }
+        .totals .totals-item .totals-value {
+            float: right;
+            width: 21%;
+            text-align: right;
+        }
+        .totals .totals-item-total {
+            font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium";
+        }
+        .checkout {
+            float: right;
+            border: 0;
+            margin-top: 20px;
+            padding: 6px 25px;
+            background-color: #6b6;
+            color: #fff;
+            font-size: 25px;
+            border-radius: 3px;
+        }
+        .checkout:hover {
+            background-color: #494;
+        }
+        /* Make adjustments for tablet */
+        @media screen and (max-width: 650px) {
+            .shopping-cart {
+                margin: 0;
+                padding-top: 20px;
+                border-top: 1px solid #eee;
+            }
+            .column-labels {
+                display: none;
+            }
+            .product-image {
+                float: right;
+                width: auto;
+            }
+            .product-image img {
+                margin: 0 0 10px 10px;
+            }
+            .product-details {
+                float: none;
+                margin-bottom: 10px;
+                width: auto;
+            }
+            .product-price {
+                clear: both;
+                width: 70px;
+            }
+            .product-quantity {
+                width: 100px;
+            }
+            .product-quantity input {
+                margin-left: 20px;
+            }
+            .product-quantity:before {
+                content: "x";
+            }
+            .product-removal {
+                width: auto;
+            }
+            .product-line-price {
+                float: right;
+                width: 70px;
+            }
+        }
+        /* Make more adjustments for phone */
+        @media screen and (max-width: 350px) {
+            .product-removal {
+                float: right;
+            }
+            .product-line-price {
+                float: right;
+                clear: left;
+                width: auto;
+                margin-top: 10px;
+            }
+            .product .product-line-price:before {
+                content: "Item Total: $";
+            }
+            .totals .totals-item label {
+                width: 60%;
+            }
+            .totals .totals-item .totals-value {
+                width: 40%;
+            }
+        }
+    </style>
+
+    <!-- main -->
+    <section class="contact section bd-container" id="contact">
+        <h1>Giỏ hàng</h1>
+        <div class="shopping-cart">
+            <div class="column-labels">
+                <label class="product-image">Ảnh</label>
+                <label class="product-details">Món ăn</label>
+                <label class="product-price">Đơn giá</label>
+                <label class="product-quantity">Số lượng</label>
+                <label class="product-removal">Xóa</label>
+                <label class="product-line-price">Tổng cộng</label>
+            </div>
+            {% for item in shopcart %}
+                <div class="product">
+                    <div class="product-image">
+                        <img src="{{item.product.image.url}}" />
+                    </div>
+                    <div class="product-details">
+                        <div class="product-title">{{item.product}}</div>
+                        <p class="product-description">{{item.product.detail|striptags|safe}}</p>
+                    </div>
+                    <div class="product-price">{{item.price|intcomma}} <sup>đ</sup></div>
+                    <div class="product-quantity">
+                        {{item.quantity}}
+                    </div>
+                    <div class="product-removal">
+                        <a href="/order/deletefromcart/{{ item.id }}" onclick="return confirm('Bạn có chắc chắn muốn xóa sản phẩm?')" class="main-btn icon-btn"><button class="remove-product">Xóa</button></a>
+                    </div>
+                    <div class="product-line-price">{{ item.varamount|intcomma }} <sup>đ</sup></div>
+                </div>
+            {% endfor %}
+
+            <div class="totals">
+                <div class="totals-item">
+                    <label>Tạm tính</label>
+                    <div class="totals-value" id="cart-subtotal">{{total|intcomma}} <sup>đ</sup></div>
+                </div>
+                <!-- <div class="totals-item">
+                    <label>Tax (5%)</label>
+                    <div class="totals-value" id="cart-tax">3.60</div>
+                </div> -->
+                <div class="totals-item">
+                    <label>Phí ship</label>
+                    <div class="totals-value">Liên Hệ</div>
+                </div>
+                <div class="totals-item totals-item-total">
+                    <label>Tổng cộng</label>
+                    <div class="totals-value" id="cart-total">{{total|intcomma}} <sup>đ</sup></div>
+                </div>
+            </div>
+            <button class="checkout"><a href="{% url 'orderproduct' %}" class="primary-btn" style="color: white;">Thanh toán</a></button>
+        </div>
+    </section>
+{% endblock %}
+

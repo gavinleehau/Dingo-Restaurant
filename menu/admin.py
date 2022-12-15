@@ -5,7 +5,7 @@ from .models import Food
 
 
 class FoodAdmin(admin.ModelAdmin):
-    list_display = ('foodName', 'price', 'status', 'image_tag')
+    list_display = ('foodName', 'FormatToVND', 'status', 'image_tag')
     list_filter = ('status',)
 
 admin.site.register(Food, FoodAdmin)

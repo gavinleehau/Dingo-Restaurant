@@ -28,7 +28,13 @@
                         <a><img src="{{post_detail.image.url}}" alt="" width= 100% height="417"></a>
                         <a class="tieudetin1 fontoswald">{{post_detail.title}}</a>
                         <div class="ngaythang1  fontroboto">
-                            <i class="fa fa-clock-o" aria-hidden="true"></i> {{post_detail.created_at|date:"d-m-Y"}} by <span class="vang">  {{post_detail.author}}</span> 
+                            <i class="fa fa-clock-o" aria-hidden="true"></i> {{post_detail.created_at|date:"d-m-Y"}} 
+							{% load mptt_tags %}
+							{% if category %}
+								<div class="ngaythang1  fontroboto"> 
+									<span class="vang"> #{{post_detail.category}}</span> 
+								</div>
+							{% endif %}
                         </div>
                         <p class="fontroboto">{{post_detail.content|safe}}</p>
                         
@@ -46,11 +52,11 @@
 							{% for cmt in comments %}
 									<div class="row khoitoprated">
 										<div class="col-sm-1 anhtoprated">
-											<img src="https://images.pexels.com/photos/127160/pexels-photo-127160.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"  alt="" width="80" height="80" style="object-fit: cover;">
+											<img src="https://i.pinimg.com/736x/74/b1/10/74b110781d66cd3b501bc85c469f93be.jpg"  alt="" width="80" height="80" style="object-fit: cover;">
 										</div>
-										<div class="col-sm-11 push-sm-1" style="margin-left: -30px;">
+										<div class="col-sm-11 push-sm-1" style="margin-left: -50px;">
 											{% if cmt.user.is_superuser == True %}
-												<h6>Admin nè</h6>
+												<h6>Admin</h6>
 											{% else %}
 												<h6>{{cmt.user.username}}</h6>
 											{% endif %} 
@@ -81,7 +87,7 @@
 										<input type="submit" value="Đánh giá" class="btn btn-primary" style="background-color: #f0ad4e; color: black; border-color: #f0ad4e">
 									</div>
 								{% else %}
-									<p>Bạn phải đăng nhập để đánh giá sản phẩm <span><a href="{% url 'login' %}">Đăng nhập</a></span></p>
+									<p>Xin quý khách vui lòng <span><a href="{% url 'login' %}" style="color: #f0ad4e;">Đăng nhập</a></span> để bình luận về bài viết </p>
 								{% endif %}
 							</form>
 						</div>
@@ -105,10 +111,12 @@
 						<h2 class="fontoswald">Danh mục</h2>
 						<div class="khoicategories fontroboto">
 							<ul>
-								<li><a href="">Healthy Food</a></li>
-								<li><a href="">Super Burger</a></li>
-								<li><a href="">Home Special</a></li>
-								<li><a href="">Desserts</a></li>
+							{% load mptt_tags %}
+							{% recursetree category %}
+								<li>
+									<a href="/category/{{ node.id }}/{{node.slug}}">{{ node.title }}</a>
+								</li>
+							{% endrecursetree %}
 							</ul>
 						</div>
 					</div>
@@ -117,7 +125,7 @@
 					<div class="toprated  wow fadeInRight">
 						<h4 class="fontoswald chutoprated">Top Rated</h4>
 						<div class="container">
-							{% for food in special %}
+							{% for food in foods %}
 								{% if food.status == True %}
 									<div class="row khoitoprated">
 										<div class="col-sm-4 anhtoprated">

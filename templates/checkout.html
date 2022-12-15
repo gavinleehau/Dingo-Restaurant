@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+{% load static %}
+{% load humanize %}
+<html>
+    <head>
+        <title>Payment</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+        <link rel="stylesheet" href="{% static '' %}checkout.css">
+    </head>
+    <body>
+        <main class="page payment-page">
+            <section class="payment-form dark">
+                <div class="container">
+                    <div class="block-heading">
+                        <h2>Thanh toán</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
+                    </div>
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        <div class="products">
+                            <h3 class="title">Checkout</h3>
+
+                            {% for item in shopcart %}
+                                <div class="item">
+                                    <span class="price">{{item.amount|intcomma}} <sup>đ</sup> </span>
+                                    <p class="item-name">{{item.product}}</p>
+                                    <p class="item-description">{{item.product.detail|striptags|safe|truncatewords:10}}</p>
+                                </div>
+                            {% endfor %}
+
+                            <div class="total">Total<span class="price">{{total|intcomma}} <sup>đ</sup></span></div>
+                        </div>
+                        <div class="card-details">
+                            <h3 class="title">Credit Card Details</h3>
+                            <div class="row">
+                                <div class="form-group col-sm-7">
+                                    <label for="card-holder">Họ và tên</label>
+                                    <input id="card-holder" type="text" class="form-control" name="full_name" placeholder="Họ và tên">
+                                </div>
+                                <div class="form-group col-sm-5">
+                                    <label for="">Số điện thoại</label>
+                                    <div class="input-group expiration-date">
+                                        <input type="text" class="form-control"placeholder="Số điện thoại" name="phone" >
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-sm-12">
+                                    <label for="card-number">Địa chỉ</label>
+                                    <input id="card-number" type="text" class="form-control" placeholder="Địa chỉ" name="address" >
+                                </div>
+
+                                <div class="form-group col-sm-12">
+                                    <button type="submit" class="btn btn-primary btn-block" style="background-color: #494; border-color: #494; color: white;">ĐẶT HÀNG</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </main>
+    </body>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    </body>
+</html>

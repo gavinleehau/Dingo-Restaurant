@@ -57,7 +57,7 @@
 			<div class="row">
 				<div class="col-sm-4 wow fadeInUp">
 					<a href="">
-						<img src="images/bvd1.jpg" alt="" class="img-fluid"></a>
+						<img src="{% static '' %}images/bvd1.jpg" alt="" class="img-fluid"></a>
 						<h3>câu chuyện của chúng tôi</h3>
 						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa explicabo quasi ad placeat sapiente ab ipsam corporis consectetur molestiabvd2</p>
 						<a href="" class="readmore">Readmore</a>
@@ -65,14 +65,14 @@
 
 				<div class="col-sm-4 wow fadeInDown">
 					<a href="">
-						<img src="images/bvd2.jpg" alt="" class="img-fluid"></a>
+						<img src="{% static '' %}images/bvd2.jpg" alt="" class="img-fluid"></a>
 						<h3>câu chuyện của chúng tôi</h3>
 						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa explicabo quasi ad placeat sapiente ab ipsam corporis consectetur molestiabvd2</p>
 						<a href="" class="readmore">Readmore</a>
 				</div>
 
 				<div class="col-sm-4 wow fadeInUp">
-					<a href=""><img src="images/bvd3.jpg" alt="" class="img-fluid"></a>
+					<a href=""><img src="{% static '' %}images/bvd3.jpg" alt="" class="img-fluid"></a>
 					<h3>câu chuyện của chúng tôi</h3>
 					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa explicabo quasi ad placeat sapiente ab ipsam corporis consectetur molestiabvd2</p>
 					<a href="" class="readmore">Readmore</a>
@@ -165,7 +165,7 @@
 					<div class="carousel-inner" role="listbox">
 						<div class="carousel-item active">
 							<div class="row">
-								{% for food in special %}
+								{% for food in foods %}
 									{% if food.status == True %}
 										<div class="sanpham">
 											<img src="{{food.image.url}}" class="anhspslide" alt="" >
@@ -382,13 +382,13 @@
 				{% for recentPost in latestPosts %}
                     {% if recentPost.status == 0 %}
 						<div class="col-md-4 col-sm-6 col-xs-12  wow fadeInUp">
-							<a href=""><img src="{{recentPost.image.url}}" alt=""style="width: -webkit-fill-available;" height="210"></a>
-							<a href="" class="tieudetin1 fontoswald">{{recentPost.title|truncatewords:5}}</a>
+							<a href="{% url 'postDetail' post_id=recentPost.id %}"><img src="{{recentPost.image.url}}" alt=""style="width: -webkit-fill-available;" height="210"></a>
+							<a href="{% url 'postDetail' post_id=recentPost.id %}" class="tieudetin1 fontoswald">{{recentPost.title|truncatewords:8}}</a>
 							<div class="ngaythang1  fontroboto">{{recentPost.created_at| date:"M d, Y"}} by <span class="vang"> {{recentPost.author}} </span> </div>
-							<p class="fontroboto">Lorem ipsum, dolor sit amet consectetur adipisicing, elit. Qui earum nostrum eius maiores laborum itaque tenetur sunt consectetur ut </p>
+							<p class="fontroboto">{{recentPost.content|safe|truncatewords:25}} </p>
 							
 							<div class="docthem">
-								<div class="like float-xs-right">99 like</div>
+								{% comment %} <div class="like float-xs-right">99 like</div> {% endcomment %}
 								<a href="" class="rm">Read More</a>	
 							</div>
 						</div>

@@ -19,6 +19,7 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import path, include
+from blog import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,6 +27,7 @@ urlpatterns = [
     path('', include('home.urls')),
     path('about/', include('aboutUs.urls')),
     path('blog/', include('blog.urls')),
+    path('category/<int:id>/<slug:slug>', views.category_products, name='category_products'),
     path('contact/', include('contact.urls')),
     path('menu/', include('menu.urls')),
     path('chefs/', include('chefs.urls')),

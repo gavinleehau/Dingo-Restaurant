@@ -23,6 +23,7 @@
 	{% comment %} <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> {% endcomment %}
  	<link rel="stylesheet" href="{% static '' %}1.css">
 	
+	
 </head>
 <body >
 	<div class="topheader">
@@ -83,8 +84,8 @@
 						<li class="nav-item  {% if request.resolver_match.url_name == 'contact' %}active{% endif %}">
 							<a class="nav-link" href="{% url 'contact' %}">Liên hệ</a>
 						</li>
-						<li class="nav-item ">
-							<a class="nav-link" href="{% url 'order' %}">order</a>
+						<li class="nav-item {% if request.resolver_match.url_name == 'order' %}active{% endif %}">
+							<a class="nav-link" href="{% url 'order' %}">Cart</a>
 						</li>
 						<li class="nav-item datbanmenu">
 							<a class="nav-link btn btn-warning wow bounce" data-wow-iteration="2" href="{% url 'contact' %}">Đặt bàn</a>
